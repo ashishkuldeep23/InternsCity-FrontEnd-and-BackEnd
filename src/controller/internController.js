@@ -6,9 +6,14 @@ const internModel = require("../model/internModel")
 
 //=====================================================** Some Imp. Regex are **====================================================
 
-const nameReg = /^([A-Za-z ]+){3,}$/
-const emailReg = /^([a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,6})*$/
-const mobileReg = /^([+]\d{2})?\d{10,}$/
+const nameReg = (/^([A-Za-z ]+){3,}$/)
+const emailReg = (/^([a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,6})*$/)
+const mobileReg = (/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/)
+
+// // // Mobile regex ---->
+// // 1. (/^[6-9]\d{9}$/)
+// // 2. (/^(\+\d{1,3}[- ]?)?\d{10}$/)
+// // 3. (/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/)
 
 // // // OldForEmail --> /^([a-z0-9\.-]+)@([a-z0-9-]+).([a-z]{2,20})$/
 
@@ -29,9 +34,6 @@ const isValid = function (value) {
 const createIntern = async function (req, res) {
 
     try {
-
-      
-        
 
         let body = req.body
 
@@ -55,7 +57,19 @@ const createIntern = async function (req, res) {
 
         let alreadyData = await internModel.findOne({$or : [{mobile : mobile} , {email : email}]})
 
-        if(alreadyData) return res.status(400).send({ status: false, message: "Email or Mobile is already used." })
+        if(alreadyData){
+
+            if(email == alreadyData.email){
+                return res.status(400).send({ status: false, message: "Email id is already used." })
+            }
+
+            if(mobile == alreadyData.mobile){
+                return res.status(400).send({ status: false, message: "Mobile No. is already used." })
+            }
+
+        }
+
+
 
         let collegeIdByClgName = await collegeModel.findOne({ name : collegeName , isDeleted : false })
 

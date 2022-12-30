@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="!">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+
+        <div id="header">
+            <h1>Open to Intern</h1>
+        </div>
+
+        <div class="nav">
+
+            <ul>
+                <li><a href="#header">Home Page</a></li>
+                <li><a href="#regestation">Create interns</a></li>
+                <li><a href="#get_clg_details">College details</a></li>
+                <li><a href="#create_clg">Create College</a></li>
+            </ul>
+
+        </div>
+
+
+
+
+
+        <div class="intro">
+            <div class="left">
+
+                <ul type="circle">
+                    <h1>Features of this website is:-</h1>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+
+
+            </div>
+
+            <div class="right">
+                <img src="https://i.pinimg.com/564x/36/02/6b/36026b43de814207920950d88128d57a.jpg" alt="Interns Pictue"
+                    srcset="">
+            </div>
+
+        </div>
+
+
+        <div class="regestation">
+
+            <div class="left">
+
+                <div class="left_content">
+
+                    <h1>Regestation for Intern</h1>
+                    <br>
+                    <ul>
+                        <li>
+                            <P>Any one can regester him/her self on this website by providing some basic details like :- <b>Name</b> , <b>Email</b> , <b>Mobile No.</b></P>
+                        </li>
+                        <li>
+
+                            <p>All avilables colleges are :- <b>rmlau , iitd </b></p>
+                        </li>
+                        <li>
+                            Please make sure data should be dummy because this is dummy project.
+                        </li>
+                        
+                    </ul>
+                    <br><br>
+                    <h2>Data after successsful regestation :-</h2>
+                    <div id="intern_output">    
+                        
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div id="regestation" class="right">
+
+
+                <form action="">
+
+                    <div class="reg_form">
+
+                        <div>
+                            <label for="Full_name">Full Name -:</label>
+                            <input placeholder="Jhon Wick" type="text" id="Full_name" required> <br>
+                        </div>
+
+                        <div>
+                            <label for="email">Email -:</label>
+                            <input placeholder="jhon@gmail.com" type="email" id="email" required> <br>
+                        </div>
+
+                        <div>
+                            <label for="mobile">Mobile -:</label>
+                            <input placeholder="9292646498" type="number" id="mobile" required> <br>
+                        </div>
+
+                        <div>
+                            <label for="clg_name">College Name -:</label>
+                            <input placeholder="IITD" type="text" id="clg_name" required> <br>
+                        </div>
+
+
+                        <input type="button" id="reg_submit" value="Submit">
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="get_clg_details" class="get_clg_details">
+
+            <div class="clg_details_main">
+
+
+                <p>Use ( rmlau or iitd ) to see results</p>
+                <input type="text" id="clg_name_search" placeholder="College Name">
+                <input type="button" id="clg_name_submit" value="Submit">
+
+                <h3 id="fullName">Full Name :-</h3>
+                <h3 id="name">Short Name :-</h3>
+                <h2>All Interns Are (Dummy Data) :-</h2>
+                <!-- Progress bar ==> -->
+                <div id="progress"></div> 
+
+                <!-- All interns data output ==> -->
+                <div id="all_Interns"></div>
+
+
+            </div>
+
+        </div>
+
+
+        <div id="create_clg">
+
+            <div class="allContent_create_clg">
+
+                <div class="left">
+                    <form action="">
+
+                        <div class="clg_create_from">
+    
+                            <div>
+                                <label for="clg_short_name">College Short Name</label>
+                                <input placeholder="DU" type="text" id="clg_short_name" required> <br>
+                            </div>
+    
+                            <div>
+                                <label for="clg_Full_name">College Full name</label>
+                                <input placeholder="Delhi University" type="text" id="clg_Full_name" required> <br>
+                            </div>
+
+                            <input type="button" id="create_clg_btn" value="Submit">
+    
+                        </div>
+                    </form>
+    
+                </div>
+
+                <div id="right_clg_created" class="right">
+
+                    <h1>College Details (created) after successsful creation.</h1>
+            
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        <div class="footer">
+            Thank you for Readig and Using!
+        </div>
+
+
+        
+
+        <script type="text/javascript" src="home.js"></script>
+    </body>
+
+</html>

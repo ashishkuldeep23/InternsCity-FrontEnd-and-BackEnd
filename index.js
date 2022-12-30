@@ -17,7 +17,7 @@ app.use(cors())
 
 
 
-mongoose.connect( process.env.TOKEN, {
+mongoose.connect( "mongodb+srv://izazsarkar11:pQ1xcwJzAI5R7SC6@izazlithium.7ghyokt.mongodb.net/Project-2", {
     useNewUrlParser: true
 })
 .then( () => console.log("MongoDb is connected"))

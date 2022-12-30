@@ -17,10 +17,6 @@ let network = navigator.onLine
 
 
 
-
-
-
-
 // // // Regestation submit ---------->
 
 // // // 1. On submit btn click --->
@@ -189,12 +185,11 @@ async function searchClgName() {
         let divHtml = ""
 
         if (a.data.interns.length != 0) {
-
             for (let i = 0; i < a.data.interns.length; i++) {
-                divHtml += `<h3 class="use_in_search_result">(Sr :- ${i + 1} , Name : ${a.data.interns[i].name} , Email Id :- ${a.data.interns[i].email} , Phone No. :- ${a.data.interns[i].mobile})</h3><br>`
+                divHtml += `<h3 class="use_in_search_result" >(Sr :- ${i + 1} , Name : ${a.data.interns[i].name} , Email Id :- ${addStarInBtw(a.data.interns[i].email)} , Phone No. :- ${addStarInBtw(a.data.interns[i].mobile)})</h3><br>`
             }
         } else {
-            divHtml = `<h1> No Interns are applied for this college (${a.data.name}).</h1>`
+            divHtml = `<h1 class="use_in_search_result" > No Interns are applied for this college (${a.data.name}).</h1>`
         }
 
         internEL.innerHTML = divHtml
@@ -282,6 +277,65 @@ async function createNewClg() {
         return alert(`Successfull :- ${a.message} `)
     }
 
+}
 
+
+
+
+
+
+
+
+// // // Make data sequre here -------------------------->
+
+
+
+// // // // Function to keep data sequre, data like Mobile no. or email
+const dotComReg = (/(\.[a-z]{2,6})*$/)
+
+// // // 1st fn for check email or not and call according (Call This fn for any str) ----->
+function addStarInBtw(str) {
+    let test = str.match(dotComReg)
+
+    // console.log(test)
+    // console.log(emailReg.test(str))  // // .test() giving true every times thatswhy go with .match()
+
+    if (test[0] != "") {
+        let callEmail = emailStarInBtw(str)
+        var newstr = callEmail[0]
+        var add = callEmail[1]
+        let mainFn = makeSequreAny(newstr)
+        return mainFn + add
+    }
+    else {
+        return makeSequreAny(str)
+    }
 
 }
+
+// // // 2nd fn to extrac email and domain name ----------->
+function emailStarInBtw(str) {
+    let test = str.match(dotComReg)
+    let lastDmainName = test[0]
+    let rem = str.indexOf(test[0])
+    let main = str.split("").slice(0, rem).join("")
+    return [main, lastDmainName]
+}
+
+// // // 3rd fn to make sequre any str ------------>
+function makeSequreAny(str) {
+    let len = str.length
+    let half = Math.ceil(len / 2)
+    let remainCount = len - half
+    let halfRemain = Math.floor(remainCount / 2)
+    let out = ""
+    for (i in str) {
+        if (i > halfRemain && (i < (len - halfRemain))) {
+            out += "*"
+            continue
+        }
+        out += str[i]
+    }
+    return out
+}
+

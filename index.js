@@ -1,12 +1,12 @@
 const express = require('express');
 const mongoose  = require('mongoose');
-// const multer = require('multer')
 const cors = require('cors')
 const route = require("./src/router/router")
 const app = express();
 
 // // // Below is for read our local .env file and it's value.
-require('dotenv').config()
+// require('dotenv').config()
+// console.log(process.env.TEST) 
 
 
 app.use(express.json())

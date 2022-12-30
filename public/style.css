@@ -86,12 +86,12 @@
 
 
 .intro {
-
     background-image: linear-gradient(to right, #CCCCFF, #FFFFFF);
     width: 100%;
     height: 70vh;
-
     display: flex;
+    padding-bottom: 4vh;
+
 }
 
 
@@ -144,7 +144,7 @@
     width: 100%;
     background-image: linear-gradient(to right, #CCCCFF, #FFFFFF);
     display: flex;
-
+    padding-bottom: 4vh;
 }
 
 
@@ -202,14 +202,10 @@
 
 
 .reg_form>div {
-
     height: 30px;
-
     font-size: 30px;
-
     display: flex;
     justify-content: end;
-
     margin: 1.5vw;
 }
 
@@ -258,7 +254,7 @@
 
     display: flex;
     justify-content: center;
-
+    padding-bottom: 4vh;
 }
 
 
@@ -338,6 +334,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 4vh;
+
 
 }
 
@@ -483,7 +481,7 @@
     border: 1px solid darkmagenta;
     border-radius: 5vh;
     background-color: #fff;
-    padding: 5px;
+    padding: 10px;
 
 }
 

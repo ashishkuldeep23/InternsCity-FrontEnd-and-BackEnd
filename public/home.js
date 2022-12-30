@@ -1,5 +1,6 @@
 // window.alert("Hello\nAshish")
 
+
 // some imp regex ---->
 const nameReg = (/^[a-zA-Z]+([\s][a-zA-Z]+)*$/);
 const emailReg = (/^([a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,6})*$/);
@@ -34,7 +35,8 @@ EnterOnInternSubmit.onkeydown = function (e) {
 async function reg_submit_func() {
 
     if (network == false) {
-        return alert("Please connect with network.\nBecause network connection needed to DB call.  ")
+        alertBoxValue = 1
+        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.  ")
     }
 
     let full_name = document.getElementById("Full_name").value.trim()
@@ -46,19 +48,23 @@ async function reg_submit_func() {
     // window.alert(`${full_name}\n${email}\n${mobile}\n${clg_name}`)
 
     if (!(full_name && email && mobile && clg_name)) {
-        return window.alert("All field are Mandatory.\nPlease give appropriate data.")
+        alertBoxValue = 1
+        return window.showAlertBox("All field are Mandatory.\nPlease give appropriate data.")
     } else {
 
         if (!nameReg.test(full_name) && !full_name != "") {
-            return window.alert(`${full_name} , Name is Invalid`)
+            alertBoxValue = 1
+            return showAlertBox(`${full_name} , Name is Invalid`)
         }
 
         if (!emailReg.test(email) && email != "") {
-            return window.alert(`${email} , Email id is Invalid`)
+            alertBoxValue = 1
+            return showAlertBox(`${email} , Email id is Invalid`)
         }
 
         if (!mobileReg.test(mobile) && mobile != "") {
-            return alert(`${mobile} , Mobile No. is Invalid`)
+            alertBoxValue = 1
+            return showAlertBox(`${mobile} , Mobile No. is Invalid`)
         }
     }
 
@@ -88,7 +94,8 @@ async function reg_submit_func() {
     // console.log(await data.json())
     let a = await data.json()
     if (a.status == false) {
-        return alert(`Error :- ${a.message}`)
+        alertBoxValue = 1
+        return showAlertBox(`Error :- ${a.message}`)
     }
 
     // console.log(a)
@@ -99,8 +106,12 @@ async function reg_submit_func() {
 
         document.getElementById("intern_output").innerHTML = `<h3>Name : ${a.data.name}</h3>\n<h3>Email : ${a.data.email}</h3>\n<h3>Mobile : ${a.data.mobile}</h3>\n<h3>College Name : ${clg_name}</h3>`
 
+        // // Set data to empty --->
 
-        return alert(`Successfull :- ${a.message} `)
+        document.getElementById("regesterForm").reset()
+
+        alertBoxValue = 1
+        return showAlertBox(`Successfull :- ${a.message} `, "Intern Created")
     }
 
 
@@ -129,7 +140,8 @@ const clgNameRegex = /^([a-z]{2,})*$/
 async function searchClgName() {
 
     if (network == false) {
-        return alert("Please connect with network.\nBecause network connection needed to DB call.  ")
+        alertBoxValue = 1
+        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.  ")
     }
 
     // // // Below el for progress when data load.( We will change visibility of progress when needed)
@@ -143,7 +155,8 @@ async function searchClgName() {
     let clg_name_search = document.getElementById("clg_name_search").value.toLowerCase().trim()
 
     if (!clgNameRegex.test(clg_name_search)) {
-        return alert(`Error : Given (${clg_name_search}) college name is not valid.`)
+        alertBoxValue = 1
+        return showAlertBox(`Error : Given (${clg_name_search}) college name is not valid.`)
     }
 
     // // // Fetch call ---->
@@ -170,10 +183,8 @@ async function searchClgName() {
     if (a.status == false) {
         // // // In any err we not want progress bar
         progress.style.visibility = "hidden"
-        return alert(`Error :- ${a.message}`)
-
-
-
+        alertBoxValue = 1
+        return showAlertBox(`Error :- ${a.message}`)
 
     } else {
 
@@ -228,7 +239,8 @@ const clgFullNmaeRegex = /^([a-zA-Z \_\.\-\,]{5,})*$/
 
 async function createNewClg() {
     if (network == false) {
-        return alert("Please connect with network.\nBecause network connection needed to DB call.  ")
+        alertBoxValue = 1
+        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.  ")
     }
 
 
@@ -239,11 +251,13 @@ async function createNewClg() {
 
 
     if (!clgNameRegex.test(clg_shortname_create)) {
-        return alert(`Error : Given college Shortname (${clg_shortname_create}) is not valid.`)
+        alertBoxValue = 1
+        return showAlertBox(`Error : Given college Shortname (${clg_shortname_create}) is not valid.`)
     }
 
     if (!clgFullNmaeRegex.test(clg_fullname_create)) {
-        return alert(`Error : Given college Fulltname (${clg_fullname_create}) is not valid.`)
+        alertBoxValue = 1
+        return showAlertBox(`Error : Given college Fulltname (${clg_fullname_create}) is not valid.`)
     }
 
     let body = {
@@ -263,7 +277,8 @@ async function createNewClg() {
 
     let a = await data.json()
     if (a.status == false) {
-        return alert(`Error :- ${a.message}`)
+        alertBoxValue = 1
+        return showAlertBox(`Error :- ${a.message}`)
     }
 
     if (a.status == true) {
@@ -274,9 +289,45 @@ async function createNewClg() {
         <h3>Full Name : ${a.data.fullName}</h3>\n
         <h2>Unique Id : ${a.data._id}</h2>\n`
 
-        return alert(`Successfull :- ${a.message} `)
+        // // // Set value to normal ---->
+        document.getElementById("createClgForm").reset()
+
+        alertBoxValue = 1
+        return showAlertBox(`Successfull :- ${a.message} `, "College Created!")
     }
 
+}
+
+
+// // // Alert box cancel ----->
+
+var alertBoxValue = 0
+
+let cancelEl = document.getElementById("cancel")
+
+cancelEl.addEventListener("click" , cancelFunc)
+
+function cancelFunc(){
+    let alertBox = document.querySelector(".error_altert")
+    alertBoxValue = 0
+    alertBox.style.visibility = "hidden"
+}
+
+
+function showAlertBox (errMsg = "Error found" , err = "Error"  ){
+
+    document.querySelector(".error_altert").style.visibility = "visible"
+    let pasteErrorMsg = document.querySelector(".error_altert_content")
+
+    pasteErrorMsg.innerHTML = `<h1>${err} ::::::: </h1>\n<h3>${errMsg}</h3>`
+}
+
+// showAlertBox("Data" , "Successful" )
+
+document.querySelector("body").onkeydown = (e)=>{
+    if((e.keyCode == 88) && (alertBoxValue==1)){
+        document.querySelector(".error_altert").style.visibility = "hidden"
+    }
 }
 
 

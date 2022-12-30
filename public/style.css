@@ -486,6 +486,41 @@
 }
 
 
+/* Error box  */
+
+.error_altert{
+    width: 50vh;
+    padding: 0.5vh;
+    height: 20vh;
+    border-radius: 1vh;
+    box-sizing: border-box;
+    position: fixed ;
+    background-color: darkblue;
+    left: 37%;
+    top: 40%;
+    z-index: 20;
+
+    visibility:hidden;
+}
+
+.error_altert > div{
+    border: 1px solid darkblue;
+    height: 19vh;
+    border-radius: 1vh;
+    background-color: white;
+}
+
+#cancel{
+    position:relative;
+    display: flex;
+    justify-content: center;
+    /* background-color: red; */
+    border-bottom: 2px solid darkblue;
+    background-color: darkblue;
+    color: white;
+}
+
+
 
 
 /* Css for mobile screen here ------------------------------------------------------------------------> */
@@ -663,6 +698,11 @@
         letter-spacing: 0;
         word-spacing: 0;
         text-align: center;
+    }
+
+    .error_altert{
+        width: 40vh;
+        left: 10%;
     }
 
 }

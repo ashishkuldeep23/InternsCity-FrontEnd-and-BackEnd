@@ -16,7 +16,7 @@
     color: #ccffff;
     text-align: center;
 
-    font-size: 4rem;
+    font-size: 4.5rem;
     letter-spacing: 10px;
     word-spacing: 25px;
 
@@ -490,21 +490,16 @@
 
 
 
-
-
-
-
-
+/* Css for mobile screen here ------------------------------------------------------------------------> */
 
 
 @media (max-width: 445px) {
     body {
-        background-image: linear-gradient(to right, #CCCCFF, #FFFFFF);
-        
+        background-image: linear-gradient(to right, #CCCCFF, #FFFFFF); 
     }
 
     #header>h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
         letter-spacing: 2px;
         word-spacing: 2px;
         text-align: center;
@@ -517,8 +512,8 @@
     }
 
     .nav>ul {
-        width: 60%;
-        font-size: 0.4rem;
+        width: 80%;
+        font-size: 0.7rem;
     }
 
 
@@ -558,9 +553,10 @@
     }
 
     .regestation>.left {
-        width: 70%;
+        width: 80%;
         height: 70vh;
         align-items: center;
+        border-radius: 0;
     }
 
     .regestation>.left>.left_content {
@@ -571,7 +567,7 @@
     }
 
     .regestation>.right {
-        width: 70%;
+        width: 80%;
         padding: 2vh ;
         justify-content: center;
     }
@@ -663,8 +659,9 @@
 
 
     .footer{
+        height: 4vh;
         margin-top: 5vh;
-        font-size: 1rem;
+        font-size: 1.3rem;
         letter-spacing: 0;
         word-spacing: 0;
         text-align: center;

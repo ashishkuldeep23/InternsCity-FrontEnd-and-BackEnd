@@ -36,7 +36,7 @@ async function reg_submit_func() {
 
     if (network == false) {
         alertBoxValue = 1
-        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.  ")
+        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call." , false)
     }
 
     let full_name = document.getElementById("Full_name").value.trim()
@@ -49,22 +49,22 @@ async function reg_submit_func() {
 
     if (!(full_name && email && mobile && clg_name)) {
         alertBoxValue = 1
-        return window.showAlertBox("All field are Mandatory.\nPlease give appropriate data.")
+        return window.showAlertBox("All field are Mandatory.\nPlease give appropriate data." , false)
     } else {
 
         if (!nameReg.test(full_name) && !full_name != "") {
             alertBoxValue = 1
-            return showAlertBox(`${full_name} , Name is Invalid`)
+            return showAlertBox(`${full_name} , Name is Invalid` , false)
         }
 
         if (!emailReg.test(email) && email != "") {
             alertBoxValue = 1
-            return showAlertBox(`${email} , Email id is Invalid`)
+            return showAlertBox(`${email} , Email id is Invalid` , false)
         }
 
         if (!mobileReg.test(mobile) && mobile != "") {
             alertBoxValue = 1
-            return showAlertBox(`${mobile} , Mobile No. is Invalid`)
+            return showAlertBox(`${mobile} , Mobile No. is Invalid` , false)
         }
     }
 
@@ -93,9 +93,10 @@ async function reg_submit_func() {
 
     // console.log(await data.json())
     let a = await data.json()
+
     if (a.status == false) {
         alertBoxValue = 1
-        return showAlertBox(`Error :- ${a.message}`)
+        return showAlertBox(`Error :- ${a.message}` , false)
     }
 
     // console.log(a)
@@ -107,11 +108,10 @@ async function reg_submit_func() {
         document.getElementById("intern_output").innerHTML = `<h3>Name : ${a.data.name}</h3>\n<h3>Email : ${a.data.email}</h3>\n<h3>Mobile : ${a.data.mobile}</h3>\n<h3>College Name : ${clg_name}</h3>`
 
         // // Set data to empty --->
-
         document.getElementById("regesterForm").reset()
 
         alertBoxValue = 1
-        return showAlertBox(`Successfull :- ${a.message} `, "Intern Created")
+        return showAlertBox(`Successfull :- ${a.message} `, "Intern Created" , true)
     }
 
 
@@ -141,7 +141,7 @@ async function searchClgName() {
 
     if (network == false) {
         alertBoxValue = 1
-        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.  ")
+        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call." , false)
     }
 
     // // // Below el for progress when data load.( We will change visibility of progress when needed)
@@ -155,8 +155,10 @@ async function searchClgName() {
     let clg_name_search = document.getElementById("clg_name_search").value.toLowerCase().trim()
 
     if (!clgNameRegex.test(clg_name_search)) {
+        progress.style.visibility = "hidden"
+
         alertBoxValue = 1
-        return showAlertBox(`Error : Given (${clg_name_search}) college name is not valid.`)
+        return showAlertBox(`Error : Given (${clg_name_search}) college name is not valid.` , false)
     }
 
     // // // Fetch call ---->
@@ -183,10 +185,13 @@ async function searchClgName() {
     if (a.status == false) {
         // // // In any err we not want progress bar
         progress.style.visibility = "hidden"
+
         alertBoxValue = 1
-        return showAlertBox(`Error :- ${a.message}`)
+        return showAlertBox(`Error :- ${a.message}` , false)
 
     } else {
+
+        document.getElementById("clg_name_search").innerText = ""
 
         document.getElementById("fullName").innerHTML = "Full Name :- " + a.data.fullName
         document.getElementById("name").innerHTML = "Short Name :- " + a.data.name
@@ -203,7 +208,12 @@ async function searchClgName() {
             divHtml = `<h1 class="use_in_search_result" > No Interns are applied for this college (${a.data.name}).</h1>`
         }
 
+        // // set data to div --->
         internEL.innerHTML = divHtml
+
+        // // // Play success audio ---------> (Not showing alert box that's why need to play)
+        let audio = new Audio("./sound/done.mp3")
+        audio.play()
 
         // // // When data loaded successfully then we not want progess bar
         progress.style.visibility = "hidden"
@@ -240,7 +250,7 @@ const clgFullNmaeRegex = /^([a-zA-Z \_\.\-\,]{5,})*$/
 async function createNewClg() {
     if (network == false) {
         alertBoxValue = 1
-        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.  ")
+        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call." , false)
     }
 
 
@@ -252,12 +262,12 @@ async function createNewClg() {
 
     if (!clgNameRegex.test(clg_shortname_create)) {
         alertBoxValue = 1
-        return showAlertBox(`Error : Given college Shortname (${clg_shortname_create}) is not valid.`)
+        return showAlertBox(`Error : Given college Shortname (${clg_shortname_create}) is not valid.` , false)
     }
 
     if (!clgFullNmaeRegex.test(clg_fullname_create)) {
         alertBoxValue = 1
-        return showAlertBox(`Error : Given college Fulltname (${clg_fullname_create}) is not valid.`)
+        return showAlertBox(`Error : Given college Fulltname (${clg_fullname_create}) is not valid.` , false)
     }
 
     let body = {
@@ -276,9 +286,10 @@ async function createNewClg() {
     let data = await fetch("/functionup/colleges", option)
 
     let a = await data.json()
+
     if (a.status == false) {
         alertBoxValue = 1
-        return showAlertBox(`Error :- ${a.message}`)
+        return showAlertBox(`Error :- ${a.message}` , false)
     }
 
     if (a.status == true) {
@@ -293,18 +304,33 @@ async function createNewClg() {
         document.getElementById("createClgForm").reset()
 
         alertBoxValue = 1
-        return showAlertBox(`Successfull :- ${a.message} `, "College Created!")
+        return showAlertBox(`Successfull :- ${a.message} `, "College Created!" , true)
     }
 
 }
 
 
+
+
+// // // Play sound By js ------->
+
+
+
+
+
+
+
+
+
+
+
 // // // Alert box cancel ----->
 
+// // // Vlaue 0 for logic to off alert box -->
 var alertBoxValue = 0
 
+// // // This is for click and off alert box on header --->
 let cancelEl = document.getElementById("cancel")
-
 cancelEl.addEventListener("click" , cancelFunc)
 
 function cancelFunc(){
@@ -314,12 +340,18 @@ function cancelFunc(){
 }
 
 
-function showAlertBox (errMsg = "Error found" , err = "Error"  ){
+function showAlertBox (errMsg = "Error found" , sound = false  , alertName = "Error"  ){
 
     document.querySelector(".error_altert").style.visibility = "visible"
     let pasteErrorMsg = document.querySelector(".error_altert_content")
 
-    pasteErrorMsg.innerHTML = `<h1>${err} ::::::: </h1>\n<h3>${errMsg}</h3>`
+    let file = sound ? "sound/done.mp3" : "sound/error.mp3"
+    let audio = new Audio(file)
+    audio.play()
+
+
+    pasteErrorMsg.innerHTML = `<h1>${alertName} ::::::: </h1>\n<h3>${errMsg}</h3>`
+
 }
 
 // showAlertBox("Data" , "Successful" )

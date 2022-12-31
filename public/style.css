@@ -520,6 +520,10 @@
     color: white;
 }
 
+#cancel:hover{
+    background-color: rgb(82, 82, 193);
+}
+
 
 
 
@@ -681,13 +685,11 @@
     }
 
     #create_clg_btn{
-        width: 20vw;
-        height: 4vh;
-        font-size: 0.8rem;
+    width: 20vw;
+    height: 4vh;
+    font-size: 0.8rem;
     font-weight: 400;
     letter-spacing: 2px;
-
-
     }
 
 
@@ -703,6 +705,7 @@
     .error_altert{
         width: 40vh;
         left: 10%;
+        top: 60%;
     }
 
 }
@@ -713,9 +716,158 @@
 
 @media(min-width: 445px) and (max-width: 1022px) {
     body {
-        background-color: yellow;
+        background-image: linear-gradient(to right, #CCCCFF, #FFFFFF); 
     }
+
+    .nav{
+        display: flex;
+        justify-content: center;
+        height: 5vh;
+
+    }
+
+    .nav>ul {
+        width: 80%;
+        font-size: 0.75rem;
+    }
+
+    .intro>.left {
+        width: 40%;
+        font-size: 0.8rem;
+        padding-left: 5vh;
+        padding-top: 15vh;
+    }
+
+    .intro>.left>ul>h1 {
+        font-size: 1.2rem;
+    }
+
+
+    .regestation {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        margin: 5vh 0;
+    }
+
+    .regestation>.left {
+        width: 70%;
+        height: 70vh;
+        align-items: center;
+        border-radius: 0;
+        margin: 5vh 0;
+
+    }
+
+    .regestation>.left>.left_content {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        padding: 7vh 3vh;
+    }
+
+    .regestation>.right {
+        width: 80%;
+        padding: 2vh ;
+        justify-content: center;
+    }
+
+
+    .reg_form>div {
+        width: 50vh;
+        height: 50px;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        margin: 3vw 0;
+    }
+
+    #reg_submit {
+        margin-left: 10%;
+        height: 5vw;
+        width: 25vw;
+        letter-spacing: 5px;
+        border-radius: 5px;
+        font-size: 1.05rem;
+    }
+
+    .clg_details_main {
+        font-size: 0.7rem;
+        margin: 5vh 0;
+
+    }
+
+    .clg_details_main>input {
+        width: 20vh;
+        font-size: 0.95rem;
+    }
+
+    #create_clg {
+        height: auto;
+        width: 100%;
+        justify-content: center;
+    }
+
+    
+    .allContent_create_clg {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 50%;
+        margin: 5vh;
+    }
+
+
+    
+    .allContent_create_clg>.right {
+        width: 100%;
+        margin-bottom: 7vh;
+
+        font-size: 0.5rem;
+
+    }
+
+    
+    .allContent_create_clg>.left {
+        width: 100%;
+        font-size: 0.5rem;
+        height: 50vh;
+    }
+
+    
+    .clg_create_from>div>label {
+        font-size: 20px;
+    }
+
+    .clg_create_from>div>input {
+        font-size: 1rem;
+
+    }
+
+    #create_clg_btn{
+        width: 20vw;
+        height: 4vh;
+        font-size: 0.8rem;
+        font-weight: 400;
+        letter-spacing: 3px;
+    }
+
+
+    .footer{
+        height: 4vh;
+        margin-top: 5vh;
+        font-size: 1.3rem;
+        letter-spacing: 5px;
+        word-spacing: 10px;
+        text-align: center;
+    }
+
+
+
 }
+
+
+
+/* Animation Start here ---------------------> */
 
 @keyframes progressForLoadData {
 

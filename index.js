@@ -5,8 +5,9 @@ const route = require("./src/router/router")
 const app = express();
 
 // // // Below is for read our local .env file and it's value.
-// require('dotenv').config()
+require('dotenv').config()
 // console.log(process.env.TEST) 
+// console.log(process.env.TOKEN) 
 
 
 app.use(express.json())
@@ -14,7 +15,7 @@ app.use(cors())
 
 
 
-mongoose.connect( "mongodb+srv://izazsarkar11:pQ1xcwJzAI5R7SC6@izazlithium.7ghyokt.mongodb.net/Project-2", {
+mongoose.connect( process.env.TOKEN, {
     useNewUrlParser: true
 })
 .then( () => console.log("MongoDb is connected"))

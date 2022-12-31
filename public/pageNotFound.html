@@ -1,54 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="!">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found</title>
 
-    <style>
-        body{
+    <head>
+        <meta charset="!">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page Not Found</title>
 
-            height: 100vh;
-            width: 100vw;
+        <style>
+            body {
 
-            /* display: flex;
+                height: 100vh;
+                width: 100vw;
+
+                /* display: flex;
             justify-content: center;
             align-items: center; */
 
-            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3Acdw0IWPRMwkDOFu78_Lf-ltHq2TsFhV8A&usqp=CAU") ;
-            background-repeat: no-repeat;
-            background-position: center;
+                background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3Acdw0IWPRMwkDOFu78_Lf-ltHq2TsFhV8A&usqp=CAU");
+                background-repeat: no-repeat;
+                background-position: center;
 
-        }
+            }
 
-        .not_found{
-            /* border: 1px solid red; */
-            
-            text-decoration: overline ;
-            color: violet;
-            font-size: 3rem;
+            .not_found {
+                text-decoration: overline;
+                color: violet;
+                font-size: 3rem;
+                
+                position: absolute;
+                left: 42%;
+                top: 62%;
+            }
+
+            .not_found:hover {
+                background-color: skyblue;
+                color: tomato;
+            }
 
 
-            position: absolute;
-            left: 42%;
-            top: 62%;
-        }
-        .not_found:hover{
-            background-color: skyblue;
-            color: tomato;
-        }
+            @media (max-width:470px) {
+                .not_found {
+                    font-size: 2rem;
+                    left: 28%;
+                }
 
-    </style>
+            }
 
-</head>
-<body>
-    
+
+            @media (min-width:470px ) and (max-width:990px) {
+                .not_found {
+                    font-size: 2rem;
+                    left:40%;
+                }
+
+            }
+        </style>
+
+    </head>
+
+    <body>
+
         <!-- <h1>Page Not Found</h1>
         <h1>404</h1> -->
-        <a  class="not_found" href="/">Go to Home</a>
+        <a class="not_found" href="/">Go to Home</a>
 
 
 
-</body>
+    </body>
+
 </html>

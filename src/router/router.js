@@ -17,6 +17,9 @@ router.post("/functionup/interns" , internController.createIntern)
 router.get("/functionup/collegeDetails" , collegeController.getCollegeDetails)
 
 
-router.get("*" , (req , res)=>{res.send({status : false , message :`Page Not Found , Given URL ${req.url} is incorrect for this application.`})})
+router.get("*" , (req , res)=>{
+    res.sendFile(process.cwd() + "/public/pageNotFound.html")
+    // res.send({status : false , message :`Page Not Found , Given URL ${req.url} is incorrect for this application.`})
+})
 
 module.exports = router

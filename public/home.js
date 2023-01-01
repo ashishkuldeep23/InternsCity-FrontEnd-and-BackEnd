@@ -105,8 +105,11 @@ async function reg_submit_func() {
 
         // // // Data put for show successfull regestation -->
 
-        document.getElementById("intern_output").innerHTML = `<h3>Name : ${a.data.name}</h3>\n<h3>Email : ${a.data.email}</h3>\n<h3>Mobile : ${a.data.mobile}</h3>\n<h3>College Name : ${clg_name}</h3>`
+        let outPutEle = document.getElementById("intern_output")
 
+        outPutEle.innerHTML = `<h3>Name : ${a.data.name}</h3>\n<h3>Email : ${a.data.email}</h3>\n<h3>Mobile : ${a.data.mobile}</h3>\n<h3>College Name : ${clg_name}</h3>`
+
+        window.scrollTo({top : outPutEle.offsetTop - 150})
         // // Set data to empty --->
         document.getElementById("regesterForm").reset()
 
@@ -295,13 +298,16 @@ async function createNewClg() {
     if (a.status == true) {
         // // // Data put for show successfull creation -->
 
-        document.getElementById("right_clg_created").innerHTML = `<h1>College Details (created) Are :- </h1>\n
+        let outPutEle = document.getElementById("right_clg_created")
+        outPutEle.innerHTML = `<h1>College Details (created) Are :- </h1>\n
         <h2>Short Name : ${a.data.name}</h2>\n
         <h3>Full Name : ${a.data.fullName}</h3>\n
         <h2>Unique Id : ${a.data._id}</h2>\n`
 
         // // // Set value to normal ---->
         document.getElementById("createClgForm").reset()
+
+        window.scrollTo({top : outPutEle.offsetTop - 150})
 
         alertBoxValue = 1
         return showAlertBox(`Successfull :- ${a.message} `, "College Created!" , true)

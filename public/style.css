@@ -4,7 +4,8 @@
 
     box-sizing: border-box;
     scroll-behavior: smooth;
-
+    
+    font-family: 'Roboto', sans-serif;
 
 }
 
@@ -461,6 +462,37 @@
     transform: scale(1.02);
 }
 
+#feedback{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feedback_line{
+    width: 395px;
+    border: 1px solid red;
+
+    text-align: center;
+}
+
+.feedback_line > img{
+   background-color: red ;
+   height: 20px;
+}
+
+.feedback_Show{
+    height: 40vh;
+    width: 395px;
+    background-color: yellow;
+    display: none;
+    border: 1px solid blue;
+
+}
+
+
+
+
+
 
 .footer {
     height: 6vh;
@@ -477,12 +509,10 @@
 
 /* This class style used in search result --> */
 .use_in_search_result{
-
     border: 1px solid darkmagenta;
     border-radius: 5vh;
     background-color: #fff;
     padding: 10px;
-
 }
 
 
@@ -623,7 +653,7 @@
         margin-left: 10%;
         height: 7vw;
         width: 25vw;
-        letter-spacing: 5px;
+        letter-spacing: 3px;
         border-radius: 5px;
         font-size: 1.05rem;
     }

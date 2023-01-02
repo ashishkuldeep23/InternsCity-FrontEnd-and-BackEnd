@@ -18,7 +18,7 @@ let network = navigator.onLine
 
 
 
-// // // Regestation submit ---------->
+// // // <------------------- Regestation submit ---------->
 
 // // // 1. On submit btn click --->
 let reg_submit = document.getElementById("reg_submit")
@@ -36,7 +36,7 @@ async function reg_submit_func() {
 
     if (network == false) {
         alertBoxValue = 1
-        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call." , false)
+        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
     }
 
     let full_name = document.getElementById("Full_name").value.trim()
@@ -49,22 +49,22 @@ async function reg_submit_func() {
 
     if (!(full_name && email && mobile && clg_name)) {
         alertBoxValue = 1
-        return window.showAlertBox("All field are Mandatory.\nPlease give appropriate data." , false)
+        return window.showAlertBox("All field are Mandatory.\nPlease give appropriate data.", false)
     } else {
 
         if (!nameReg.test(full_name) && !full_name != "") {
             alertBoxValue = 1
-            return showAlertBox(`${full_name} , Name is Invalid` , false)
+            return showAlertBox(`${full_name} , Name is Invalid`, false)
         }
 
         if (!emailReg.test(email) && email != "") {
             alertBoxValue = 1
-            return showAlertBox(`${email} , Email id is Invalid` , false)
+            return showAlertBox(`${email} , Email id is Invalid`, false)
         }
 
         if (!mobileReg.test(mobile) && mobile != "") {
             alertBoxValue = 1
-            return showAlertBox(`${mobile} , Mobile No. is Invalid` , false)
+            return showAlertBox(`${mobile} , Mobile No. is Invalid`, false)
         }
     }
 
@@ -96,7 +96,7 @@ async function reg_submit_func() {
 
     if (a.status == false) {
         alertBoxValue = 1
-        return showAlertBox(`Error :- ${a.message}` , false)
+        return showAlertBox(`Error :- ${a.message}`, false)
     }
 
     // console.log(a)
@@ -109,12 +109,12 @@ async function reg_submit_func() {
 
         outPutEle.innerHTML = `<h3>Name : ${a.data.name}</h3>\n<h3>Email : ${a.data.email}</h3>\n<h3>Mobile : ${a.data.mobile}</h3>\n<h3>College Name : ${clg_name}</h3>`
 
-        window.scrollTo({top : outPutEle.offsetTop - 150})
+        window.scrollTo({ top: outPutEle.offsetTop - 150 })
         // // Set data to empty --->
         document.getElementById("regesterForm").reset()
 
         alertBoxValue = 1
-        return showAlertBox(`Successfull :- ${a.message} `, "Intern Created" , true)
+        return showAlertBox(`Successfull :- ${a.message} `, "Intern Created", true)
     }
 
 
@@ -122,7 +122,7 @@ async function reg_submit_func() {
 
 
 
-// // // Search Submit ----->
+// // // <------------------------------------ Search Submit -------------->
 
 // // // 1. On submit btn click --->
 let searchClg = document.getElementById("clg_name_submit")
@@ -144,7 +144,7 @@ async function searchClgName() {
 
     if (network == false) {
         alertBoxValue = 1
-        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call." , false)
+        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
     }
 
     // // // Below el for progress when data load.( We will change visibility of progress when needed)
@@ -161,7 +161,7 @@ async function searchClgName() {
         progress.style.visibility = "hidden"
 
         alertBoxValue = 1
-        return showAlertBox(`Error : Given (${clg_name_search}) college name is not valid.` , false)
+        return showAlertBox(`Error : Given (${clg_name_search}) college name is not valid.`, false)
     }
 
     // // // Fetch call ---->
@@ -190,7 +190,7 @@ async function searchClgName() {
         progress.style.visibility = "hidden"
 
         alertBoxValue = 1
-        return showAlertBox(`Error :- ${a.message}` , false)
+        return showAlertBox(`Error :- ${a.message}`, false)
 
     } else {
 
@@ -230,7 +230,7 @@ async function searchClgName() {
 
 
 
-// // // Create Clg Submit ----->
+// // // <-------------------------------- Create Clg Submit -------------->
 
 // // // 1. On submit btn click --->
 let createClg = document.getElementById("create_clg_btn")
@@ -253,7 +253,7 @@ const clgFullNmaeRegex = /^([a-zA-Z \_\.\-\,]{5,})*$/
 async function createNewClg() {
     if (network == false) {
         alertBoxValue = 1
-        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call." , false)
+        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
     }
 
 
@@ -265,17 +265,17 @@ async function createNewClg() {
 
     if (!clgNameRegex.test(clg_shortname_create)) {
         alertBoxValue = 1
-        return showAlertBox(`Error : Given college Shortname (${clg_shortname_create}) is not valid.` , false)
+        return showAlertBox(`Error : Given college Shortname (${clg_shortname_create}) is not valid.`, false)
     }
 
     if (!clgFullNmaeRegex.test(clg_fullname_create)) {
         alertBoxValue = 1
-        return showAlertBox(`Error : Given college Fulltname (${clg_fullname_create}) is not valid.` , false)
+        return showAlertBox(`Error : Given college Fulltname (${clg_fullname_create}) is not valid.`, false)
     }
 
     let body = {
-        name : clg_shortname_create ,
-        fullName : clg_fullname_create
+        name: clg_shortname_create,
+        fullName: clg_fullname_create
     }
 
     let option = {
@@ -292,7 +292,7 @@ async function createNewClg() {
 
     if (a.status == false) {
         alertBoxValue = 1
-        return showAlertBox(`Error :- ${a.message}` , false)
+        return showAlertBox(`Error :- ${a.message}`, false)
     }
 
     if (a.status == true) {
@@ -307,18 +307,91 @@ async function createNewClg() {
         // // // Set value to normal ---->
         document.getElementById("createClgForm").reset()
 
-        window.scrollTo({top : outPutEle.offsetTop - 150})
+        window.scrollTo({ top: outPutEle.offsetTop - 150 })
 
         alertBoxValue = 1
-        return showAlertBox(`Successfull :- ${a.message} `, "College Created!" , true)
+        return showAlertBox(`Successfull :- ${a.message} `, "College Created!", true)
     }
 
 }
 
 
+// // // <------------------------- Feedback ------------------------------>
 
 
-// // // Play sound By js ------->
+let feed_submit = document.getElementById("feed_submit_btn")
+feed_submit.addEventListener("click", feed_submit_func)
+
+async function feed_submit_func() {
+
+    if (network == false) {
+        alertBoxValue = 1
+        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
+    }
+
+
+    let feedName = document.getElementById("feed_name").value.trim()
+
+    let feedMsg = document.getElementById("feed_msg").value.trim()
+
+
+    let checkedRadio = ""
+    let radio = document.getElementsByName("feed_type")
+    for (let i of radio) {
+        if (i.checked) {
+            checkedRadio = i.value
+        }
+    }
+
+
+
+    if (!feedName) {
+        feedName = "Guest"
+    } 
+
+    if (!feedMsg) {
+        alertBoxValue = 1
+        return showAlertBox("Feedback message should given.", false)
+    }
+
+
+    let body = {
+        modelName: "intern",
+        feedbackName: feedName,
+        feedbackType: checkedRadio,
+        feedbackMsg: feedMsg
+    }
+
+
+    let option = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    }
+
+    let data = await fetch("https://feedback-hzwx.onrender.com/newFeedback", option)
+
+    let a = await data.json()
+
+    if (a.status == false) {
+        alertBoxValue = 1
+        return showAlertBox(`Error :- ${a.message}`, false)
+    }
+
+    if (a.status == true) {
+
+        document.getElementById("feed_form").reset()
+
+        alertBoxValue = 1
+        return showAlertBox(`Successfull :- ${a.message} `, "Intern Created", true)
+    }
+
+
+}
+
+
 
 
 
@@ -337,16 +410,16 @@ var alertBoxValue = 0
 
 // // // This is for click and off alert box on header --->
 let cancelEl = document.getElementById("cancel")
-cancelEl.addEventListener("click" , cancelFunc)
+cancelEl.addEventListener("click", cancelFunc)
 
-function cancelFunc(){
+function cancelFunc() {
     let alertBox = document.querySelector(".error_altert")
     alertBoxValue = 0
     alertBox.style.visibility = "hidden"
 }
 
 
-function showAlertBox (errMsg = "Error found" , sound = false  , alertName = "Error"  ){
+function showAlertBox(errMsg = "Error found", sound = false, alertName = "Error") {
 
     document.querySelector(".error_altert").style.visibility = "visible"
     let pasteErrorMsg = document.querySelector(".error_altert_content")
@@ -362,8 +435,8 @@ function showAlertBox (errMsg = "Error found" , sound = false  , alertName = "Er
 
 // showAlertBox("Data" , "Successful" )
 
-document.querySelector("body").onkeydown = (e)=>{
-    if((e.keyCode == 88) && (alertBoxValue==1)){
+document.querySelector("body").onkeydown = (e) => {
+    if ((e.keyCode == 88) && (alertBoxValue == 1)) {
         document.querySelector(".error_altert").style.visibility = "hidden"
     }
 }

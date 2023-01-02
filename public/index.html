@@ -212,17 +212,16 @@
             <div class="left">
                 <div class="left_content_foot">
                     <h1>Feedback</h1>
-                    <form action="">
+                    <form action="" id="feed_form">
                         <div class="feed_form">
 
                             <div>
-                                <br><br>
                                 <label for="feed_name"><h2>Name :-</h2></label>
                                 <input type="text" placeholder="Jhon" id="feed_name">
                             </div>
 
                             <br>
-                            <h2>Types of Feedback :-</h1>
+                                <h2>Types of Feedback :-</h1>
                                 <div id="feed_radio">
 
                                     <input type="radio" name="feed_type" value="feedback_only" id="feedback_only"
@@ -245,11 +244,10 @@
                                 <div>
                                     <br>
                                     <label for="feed_msg"><h2>Feedback Message :-</h2></label>
-                                    <textarea name="" placeholder="I like the website." id="feed_msg" id="" cols="60"
-                                        rows="8"></textarea>
+                                    <textarea name="" placeholder="I like the website." id="feed_msg" id="" cols="50" rows="8"></textarea>
                                 </div>
 
-                                <input type="button" id="feed_submit_btn" value="Submit" onclick="radioSubmit()">
+                                <input type="button" id="feed_submit_btn" value="Submit">
                         </div>
 
                     </form>
@@ -299,22 +297,6 @@
 
             function radioSubmit() {
 
-                let radio = document.getElementsByName("feed_type")
-
-                console.log(radio)
-
-                let resultRadio = ""
-
-                for (let i of radio) {
-
-                    if (i.checked) {
-                        resultRadio = i.value
-                    }
-
-                }
-
-
-                alert(resultRadio)
             }
 
         </script>

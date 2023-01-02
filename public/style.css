@@ -239,6 +239,7 @@
 
 #reg_submit:hover {
     color: black;
+    border-radius: 5vh;
 }
 
 #reg_submit:active {
@@ -318,8 +319,8 @@
 }
 
 #clg_name_submit:hover {
-    color: black;
-
+    color: yellow;
+    border-radius: 5vh;
 }
 
 #clg_name_submit:active {
@@ -418,7 +419,7 @@
     width: 15vw;
     height: 5vh;
     border: 1px solid cyan;
-    border-radius: 5vh;
+    border-radius: 1vh;
     font-size: 1.5rem;
     font-weight: 800;
     color: white;
@@ -430,13 +431,13 @@
 
 
 #create_clg_btn:hover {
-    color: red;
+    border-radius: 7vh;
 }
 
 
 #create_clg_btn:active {
     background-color: #F8FCDA;
-
+    color: red;
 }
 
 
@@ -491,9 +492,6 @@
 
 
 
-
-
-
 .footer {
     height: 6vh;
     width: 100%;
@@ -533,7 +531,7 @@ footer {
 
 
 footer>.left {
-    height: 80vh;
+    height: 75vh;
     width: 30%;
     background-color: yellow;
 
@@ -559,26 +557,79 @@ footer>.left {
     color: white;
 
     background-color: #14248A;
-
 }
 
 .left_content_foot>h1 {
     font-weight: 800;
     font-size: 2.5rem;
+
+    position: relative;
+    top: -65px;
+
+    background-color: yellow;
+    color: black;
+    padding: 0.5vh;
+    border-radius: 2vh;
+
+
 }
 
-#feed_msg {
-    resize: none;
-}
 
 .feed_form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    margin-top: -20px;
+
+    border: 1px solid white;
+    padding: 1vh;
+    border-radius: 1vh;
+
 }
+
+.feed_form input:active{
+    background-color: cyan;
+    padding: 0 .5vh;
+}
+
+#feed_name{
+  
+    height: 4vh;
+    font-size: 1.3rem;
+}
+
 
 #feed_radio {
     padding: 0 5vh;
+}
+
+#feed_msg {
+    resize: none;
+    font-size: 1rem;
+}
+
+#feed_msg:active{
+    background-color: cyan;
+   
+}
+
+
+#feed_submit_btn{
+    width: 15vh;
+    height: 4vh;
+    font-weight: 900;
+    letter-spacing: 4px;
+    background-color: #40ff00;
+}
+
+#feed_submit_btn:hover{
+    background-color: #00ffff;
+    border-radius: 2vh;
+}
+
+#feed_submit_btn:active{
+    color: white;
 }
 
 footer>.right {
@@ -639,6 +690,10 @@ footer>.right {
     width: 40px;
     background-color: #fff;
     border-radius: 10px;
+}
+
+.logos:hover{
+    transform: scale(1.3);
 }
 
 .dev_info {
@@ -875,13 +930,23 @@ footer>.right {
     footer>.left {
         width: 85%;
         height: auto;
-        margin: 5vh 0;
+        margin: 10vh 0;
+        height: 80vh;
 
     }
 
     .left_content_foot {
         display: block;
         padding: 2vh;
+    }
+
+    .left_content_foot > h1{
+        padding: 0.5vh;
+        font-size: 1.5rem;
+        width: 20vh;
+        border-radius: 1vh;
+        left: 60px;
+        top: -30px;
     }
 
     #feed_msg {
@@ -1089,11 +1154,21 @@ footer>.right {
         width: 65%;
         height: auto;
         margin: 5vh;
-
+        height: 80vh;
     }
 
     .left_content_foot {
         padding: 2vh;
+        
+    }
+
+    .left_content_foot > h1{
+        padding: 0.5vh;
+        font-size: 1.5rem;
+        width: 20vh;
+        border-radius: 1vh;
+        left: 0px;
+        top: -40px;
     }
 
     #feed_msg {

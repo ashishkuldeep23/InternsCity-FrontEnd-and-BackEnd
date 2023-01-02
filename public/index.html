@@ -6,11 +6,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Open to Inter(Home page)</title>
-        <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/564x/36/02/6b/36026b43de814207920950d88128d57a.jpg">
-        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon"
+            href="https://i.pinimg.com/564x/36/02/6b/36026b43de814207920950d88128d57a.jpg">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
     </head>
-    
+
     <body>
 
         <!-- Below is Error Box =========>  -->
@@ -74,7 +77,9 @@
                     <br>
                     <ul>
                         <li>
-                            <P>Any one can regester him/her self on this website by providing some basic details like :- <b>Name</b> , <b>Email</b> , <b>Mobile No.</b></P>
+                            <P>Any one can regester him/her self on this website by providing some basic details like :-
+                                <b>Name</b> , <b>Email</b> , <b>Mobile No.</b>
+                            </P>
                         </li>
                         <li>
 
@@ -83,12 +88,12 @@
                         <li>
                             Please make sure data should be dummy because this is dummy project.
                         </li>
-                        
+
                     </ul>
                     <br><br>
                     <h2>Data after successsful regestation :-</h2>
-                    <div id="intern_output">    
-                        
+                    <div id="intern_output">
+
                     </div>
 
                 </div>
@@ -149,7 +154,7 @@
                 <h3 id="name">Short Name :-</h3>
                 <h2>All Interns Are (Dummy Data) :-</h2>
                 <!-- Progress bar ==> -->
-                <div id="progress"></div> 
+                <div id="progress"></div>
 
                 <!-- All interns data output ==> -->
                 <div id="all_Interns"></div>
@@ -168,28 +173,28 @@
                     <form id="createClgForm" action="">
 
                         <div class="clg_create_from">
-    
+
                             <div>
                                 <label for="clg_short_name">College Short Name</label>
                                 <input placeholder="DU" type="text" id="clg_short_name" required> <br>
                             </div>
-    
+
                             <div>
                                 <label for="clg_Full_name">College Full name</label>
                                 <input placeholder="Delhi University" type="text" id="clg_Full_name" required> <br>
                             </div>
 
                             <input type="button" id="create_clg_btn" value="Submit">
-    
+
                         </div>
                     </form>
-    
+
                 </div>
 
                 <div id="right_clg_created" class="right">
 
                     <h1>College Details (created) after successsful creation.</h1>
-            
+
                 </div>
 
 
@@ -199,11 +204,121 @@
         </div>
 
         <div class="footer">
-            Thank you for Readig and Using!
+            Thank you for Using and visiting!
         </div>
 
+        <footer>
 
-        
+            <div class="left">
+                <div class="left_content_foot">
+                    <h1>Feedback</h1>
+                    <form action="">
+                        <div class="feed_form">
+
+                            <div>
+                                <br><br>
+                                <label for="feed_name"><h2>Name :-</h2></label>
+                                <input type="text" placeholder="Jhon" id="feed_name">
+                            </div>
+
+                            <br>
+                            <h2>Types of Feedback :-</h1>
+                                <div id="feed_radio">
+
+                                    <input type="radio" name="feed_type" value="feedback_only" id="feedback_only"
+                                        checked><label for="feedback_only">Feedback</label><br>
+
+                                    <input type="radio" name="feed_type" value="suggestion" id="Suggestion"><label
+                                        for="Suggestion">Suggestion</label><br>
+
+                                    <input type="radio" name="feed_type" value="advice" id="advice"><label
+                                        for="advice">Advice</label> <br>
+
+                                    <input type="radio" name="feed_type" value="bug" id="bug"><label
+                                        for="bug">Bug</label> <br>
+
+                                    <input type="radio" name="feed_type" value="criticize" id="criticize"><label
+                                        for="criticize">Criticize</label> 
+
+                                </div>
+
+                                <div>
+                                    <br>
+                                    <label for="feed_msg"><h2>Feedback Message :-</h2></label>
+                                    <textarea name="" placeholder="I like the website." id="feed_msg" id="" cols="60"
+                                        rows="8"></textarea>
+                                </div>
+
+                                <input type="button" id="feed_submit_btn" value="Submit" onclick="radioSubmit()">
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="right">
+                <div class="right_content_foot">
+
+                   <div class="dev_img_social">
+                        <img src="https://i.pinimg.com/564x/72/6e/92/726e92a0ef5a07e46e0403ae36c0b228.jpg" id="about_img" alt="Ashish Pic">
+
+                        <div>
+                            <h1>Ashish Kuldeep</h1>
+
+                            <a href="https://www.linkedin.com/in/ashish-kuldeep-09b96018b" target="_blank"><img src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Linkedin2_svg-512.png" class="logos" alt="Linkedin">
+                            </a>
+
+                            <a href="https://github.com/Ashishkuldeep23" target="_blank"><img src="https://cdn3.iconfinder.com/data/icons/social-media-2253/25/Group-512.png" class="logos" alt="Github"></a>
+                            
+                            <a href="https://mobile.twitter.com/ashishkuldeep23" target="_blank"><img src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Twitter5_svg-512.png" class="logos" alt="Tiwtter"></a>
+                            
+                            <a href="https://www.youtube.com/" target="_blank"><img src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Youtube3_svg-512.png" class="logos" alt="Youtube"></a>
+                            
+                        </div>
+
+                   </div>
+
+                   <div class="dev_info">
+                        <h4>I am learning web development.</h4>
+                        <h4>I am fallowing MERN Stack</h4>
+                        <h4>Fallow me on social media</h4>    
+                   </div>
+
+                </div>
+            </div>
+
+        </footer>
+
+
+
+
+        <script>
+
+            /// ///  /// Alll cut here ---------->
+
+            function radioSubmit() {
+
+                let radio = document.getElementsByName("feed_type")
+
+                console.log(radio)
+
+                let resultRadio = ""
+
+                for (let i of radio) {
+
+                    if (i.checked) {
+                        resultRadio = i.value
+                    }
+
+                }
+
+
+                alert(resultRadio)
+            }
+
+        </script>
+
 
         <script type="text/javascript" src="home.js"></script>
     </body>

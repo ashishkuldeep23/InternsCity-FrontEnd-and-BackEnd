@@ -18,7 +18,7 @@ let network = navigator.onLine
 
 
 
-// // // <------------------- Regestation submit ---------->
+// // // <------------------------------------- Regestation submit ------------------------------------->
 
 // // // 1. On submit btn click --->
 let reg_submit = document.getElementById("reg_submit")
@@ -122,7 +122,7 @@ async function reg_submit_func() {
 
 
 
-// // // <------------------------------------ Search Submit -------------->
+// // // <------------------------------------------------- Search Submit ------------------------------------------------------------>
 
 // // // 1. On submit btn click --->
 let searchClg = document.getElementById("clg_name_submit")
@@ -230,7 +230,7 @@ async function searchClgName() {
 
 
 
-// // // <-------------------------------- Create Clg Submit -------------->
+// // // <----------------------------------------------------------------------- Create Clg Submit ------------------------------------->
 
 // // // 1. On submit btn click --->
 let createClg = document.getElementById("create_clg_btn")
@@ -316,7 +316,7 @@ async function createNewClg() {
 }
 
 
-// // // <------------------------- Feedback ------------------------------>
+// // // <----------------------------------------------------------- Feedback --------------------------------------------------------->
 
 
 let feed_submit = document.getElementById("feed_submit_btn")
@@ -398,7 +398,7 @@ async function feed_submit_func() {
 
 
 
-
+// // // ---------------------------------------------------- Some Imp parts like alertbox and sound ---------------------------------->
 
 
 
@@ -446,10 +446,7 @@ document.querySelector("body").onkeydown = (e) => {
 
 
 
-
-
-// // // Make data sequre here -------------------------->
-
+// // // <--------------------------------------------------------------------- Make data sequre here -------------------------->
 
 
 // // // // Function to keep data sequre, data like Mobile no. or email

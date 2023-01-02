@@ -12,6 +12,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        
     </head>
 
     <body>
@@ -30,15 +31,16 @@
         </div>
 
         <div class="nav">
-
             <ul>
                 <li><a href="#header">Home Page</a></li>
                 <li><a href="#regestation">Create interns</a></li>
                 <li><a href="#get_clg_details">College details</a></li>
                 <li><a href="#create_clg">Create College</a></li>
             </ul>
-
+            
         </div>
+
+        <div  id="progress_top" > </div>
 
 
 
@@ -216,8 +218,8 @@
                         <div class="feed_form">
 
                             <div>
-                                <label for="feed_name"><h2>Name :-</h2></label>
-                                <input type="text" placeholder="Jhon" id="feed_name">
+                                <label for="feed_name"><h2>Visitor Name :-</h2></label>
+                                <input type="text" placeholder="Guest (Default)" id="feed_name">
                             </div>
 
                             <br>
@@ -244,10 +246,12 @@
                                 <div>
                                     <br>
                                     <label for="feed_msg"><h2>Feedback Message :-</h2></label>
-                                    <textarea name="" placeholder="I like the website." id="feed_msg" id="" cols="50" rows="8"></textarea>
+                                    <textarea name="" placeholder="I like the website." id="feed_msg" id="" cols="40" rows="8"></textarea>
                                 </div>
 
                                 <input type="button" id="feed_submit_btn" value="Submit">
+                                <div id="progress_feed"></div>
+
                         </div>
 
                     </form>
@@ -288,18 +292,79 @@
 
         </footer>
 
+        <a href="#header"> <img src="https://cdn0.iconfinder.com/data/icons/evericons-16px/16/circle-arrow-top-512.png" alt="Top scroll" id="top_scroll_btn"></a>
+       
+
 
 
 
         <script>
 
-            /// ///  /// Alll cut here ---------->
+            document.addEventListener("scroll" , scrollProg)
+            // This is listing scoll even and giving self function attached with scroll.
+    
+    
+            const scrollDemoElement = document.querySelector("#progress_top")      // Element that is going to increase width.
+            
+    
+            // This is for all progress bar whit scroll down
+            function scrollProg(){
+                // console.log("HI")
+    
+                // Total height of our web page.
+                const totalHeigthWebPage = document.body.scrollHeight;          
+    
+                // Scoll distance from top.
+                const currentDistanceFromTop = document.documentElement.scrollTop;
+    
+                // This means srollBar height 
+                const windowHeight = document.documentElement.clientHeight;
+    
+    
+    
+                // console.log(totalHeigthWebPage)
+                // console.log(currentDistanceFromTop)
+                // console.log(windowHeight)
+    
+    
+    
+                // Simply calculating percent of scrolled from top(very simply way).
+                const scrollPercentage = (currentDistanceFromTop/(totalHeigthWebPage - windowHeight)) * 100
+    
+                
+                // console.log(scrollPercentage)
+    
+                // Top scroll btn hide or show start from here.
+                // Here i am going to show top btn on the percent of scroll
+    
+                // // // Go to top show after scroll atleast 20 
 
-            function radioSubmit() {
-
+                if(scrollPercentage < 20){
+                    document.getElementById("top_scroll_btn").style.visibility = "hidden"
+                }else{
+                    document.getElementById("top_scroll_btn").style.visibility = "visible"
+                }
+    
+                // // // This use to show progess bar and at 0-3% hide space.
+                if(scrollPercentage > 3){
+                    document.getElementById("progress_top").style.display = "block"
+                }else{
+                    document.getElementById("progress_top").style.display = "none"
+                }
+    
+                // console.log(Math.round(scrollPercentage)) 
+                // Fatching width with our progress bar width.
+    
+                scrollDemoElement.style.width = Math.round(scrollPercentage) + "%"
+    
             }
-
+    
+    
+        
+    
         </script>
+        
+    
 
 
         <script type="text/javascript" src="home.js"></script>

@@ -329,6 +329,9 @@ async function feed_submit_func() {
         return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
     }
 
+    let progress = document.getElementById("progress_feed")
+    progress.style.width = "0px"
+    progress.style.visibility = "visible"
 
     let feedName = document.getElementById("feed_name").value.trim()
 
@@ -349,7 +352,9 @@ async function feed_submit_func() {
         feedName = "Guest"
     } 
 
-    if (!feedMsg) {
+    if (!feedMsg) { 
+        progress.style.visibility = "hidden"
+
         alertBoxValue = 1
         return showAlertBox("Feedback message should given.", false)
     }
@@ -376,16 +381,19 @@ async function feed_submit_func() {
     let a = await data.json()
 
     if (a.status == false) {
+        progress.style.display = "hidden"
+
         alertBoxValue = 1
         return showAlertBox(`Error :- ${a.message}`, false)
     }
 
     if (a.status == true) {
+        progress.style.visibility = "hidden"
 
         document.getElementById("feed_form").reset()
 
         alertBoxValue = 1
-        return showAlertBox(`Successfull :- ${a.message} `, "Intern Created", true)
+        return showAlertBox(`Successfull :- ${a.message} `, true , "Feedback Submited")
     }
 
 
@@ -419,17 +427,24 @@ function cancelFunc() {
 }
 
 
-function showAlertBox(errMsg = "Error found", sound = false, alertName = "Error") {
+function showAlertBox(errMsg = "No Page found", sound = false, alertName = "Error") {
 
     document.querySelector(".error_altert").style.visibility = "visible"
+    
+    if( sound == true){
+        let audio = new Audio("sound/done.mp3")
+        audio.play()
+    }else{
+        let audio = new Audio("sound/error.mp3")
+        audio.play()
+    }
+
+    // let file = sound ? "sound/done.mp3" : "sound/error.mp3"
+    // let audio = new Audio(file)
+    // audio.play()
+
     let pasteErrorMsg = document.querySelector(".error_altert_content")
-
-    let file = sound ? "sound/done.mp3" : "sound/error.mp3"
-    let audio = new Audio(file)
-    audio.play()
-
-
-    pasteErrorMsg.innerHTML = `<h1>${alertName} ::::::: </h1>\n<h3>${errMsg}</h3>`
+    pasteErrorMsg.innerHTML = `<h1>${alertName} >>> </h1>\n<h3>${errMsg}</h3>`
 
 }
 
@@ -438,6 +453,7 @@ function showAlertBox(errMsg = "Error found", sound = false, alertName = "Error"
 document.querySelector("body").onkeydown = (e) => {
     if ((e.keyCode == 88) && (alertBoxValue == 1)) {
         document.querySelector(".error_altert").style.visibility = "hidden"
+        alertBoxValue == 0
     }
 }
 

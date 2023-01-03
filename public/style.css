@@ -548,7 +548,7 @@ footer {
 
 
 footer>.left {
-    height: 85vh;
+    height: 90vh;
     width: 30%;
     background-color: yellow;
     margin: 15vh 0;
@@ -558,12 +558,14 @@ footer>.left {
 
     border-radius: 2vh;
 
+    margin-top: 20vh;
+
 }
 
 
 
 .left_content_foot {
-    height: 98%;
+    height: 97%;
     width: 99%;
     border-radius: 2vh;
 
@@ -574,11 +576,14 @@ footer>.left {
     color: white;
 
     background-color: #14248A;
+
+    padding: 5vh 1vh;
+
 }
 
-.left_content_foot>h1 {
+.feed_form>h1 {
     font-weight: 800;
-    font-size: 2.5rem;
+    font-size: 2rem;
 
     position: relative;
     top: -65px;
@@ -602,7 +607,11 @@ footer>.left {
     border: 1px solid white;
     padding: 1vh;
     border-radius: 1vh;
+    transition: ease-in-out border-radius .3s;
+}
 
+.feed_form:hover{
+    border-radius: 5vh;
 }
 
 .feed_form input:active{
@@ -614,6 +623,7 @@ footer>.left {
   
     height: 4vh;
     font-size: 1.2rem;
+    border-radius: 1vh;
 }
 
 
@@ -625,6 +635,8 @@ footer>.left {
     resize: none;
     font-size: 1rem;
     padding: 1vh;
+    border-radius: 1vh;
+
 }
 
 #feed_msg:active{
@@ -805,7 +817,7 @@ footer>.right {
 /* Css for mobile screen here ------------------------------------------------------------------------> */
 
 
-@media (max-width: 445px) {
+@media (max-width: 440px) {
     body {
         background-image: linear-gradient(to right, #CCCCFF, #FFFFFF);
     }
@@ -938,9 +950,7 @@ footer>.right {
     .allContent_create_clg>.right {
         width: 100%;
         margin-bottom: 7vh;
-
         font-size: 0.5rem;
-
     }
 
 
@@ -988,29 +998,38 @@ footer>.right {
 
     footer>.left {
         width: 85%;
-        height: auto;
         margin: 10vh 0;
-        height: 85vh;
+        height: 90vh;
 
     }
 
     .left_content_foot {
         display: block;
-        padding: 2vh;
+        padding: 5vh 1vh;
     }
 
-    .left_content_foot > h1{
+    .feed_form > h1{
         padding: 0.5vh;
         font-size: 1.5rem;
         width: 20vh;
         border-radius: 1vh;
-        left: 60px;
-        top: -30px;
+        left: 45px;
+        top: -60px;
     }
 
-    #feed_msg {
-        width: 35vh;
+    .feed_form{
+        margin-top:0px;
+    }
 
+    #feed_name{
+        width: 30vh;
+        font-size: 1rem;
+    }
+    
+    #feed_msg {
+        width: 30vh;
+        height: 15vh;
+        font-size: 1rem;
     }
 
     footer>.right {
@@ -1221,25 +1240,28 @@ footer>.right {
         width: 65%;
         height: auto;
         margin: 10vh;
-        height: 85vh;
+        height: 90vh;
     }
 
     .left_content_foot {
-        padding: 2vh;
-        
+        padding: 5vh ;
     }
 
-    .left_content_foot > h1{
+    .feed_form > h1{
         padding: 0.5vh;
         font-size: 1.5rem;
         width: 20vh;
         border-radius: 1vh;
-        left: 0px;
-        top: -40px;
+        left: 45px;
+        top: -30px;
+    }
+
+    .feed_form{
+        width: 100%;
     }
 
     #feed_msg {
-        width: 55vh;
+        width: 40vh;
     }
 
     footer>.right {

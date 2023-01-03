@@ -122,7 +122,7 @@ async function reg_submit_func() {
 
 
 
-// // // <------------------------------------------------- Search Submit ------------------------------------------------------------>
+// // // <------------------------------------------------- Search Clg Submit ------------------------------------------------------------>
 
 // // // 1. On submit btn click --->
 let searchClg = document.getElementById("clg_name_submit")
@@ -205,7 +205,7 @@ async function searchClgName() {
 
         if (a.data.interns.length != 0) {
             for (let i = 0; i < a.data.interns.length; i++) {
-                divHtml += `<h3 class="use_in_search_result" >(Sr :- ${i + 1} , Name : ${a.data.interns[i].name} , Email Id :- ${addStarInBtw(a.data.interns[i].email)} , Phone No. :- ${addStarInBtw(a.data.interns[i].mobile)})</h3><br>`
+                divHtml += `<h3 class="use_in_search_result" >(Sr :- ${i + 1} , Name :- ${a.data.interns[i].name} , Email Id :- ${addStarInBtw(a.data.interns[i].email)} , Phone No. :- ${addStarInBtw(a.data.interns[i].mobile)})</h3><br>`
             }
         } else {
             divHtml = `<h1 class="use_in_search_result" > No Interns are applied for this college (${a.data.name}).</h1>`
@@ -316,6 +316,7 @@ async function createNewClg() {
 }
 
 
+
 // // // <----------------------------------------------------------- Feedback --------------------------------------------------------->
 
 
@@ -350,9 +351,9 @@ async function feed_submit_func() {
 
     if (!feedName) {
         feedName = "Guest"
-    } 
+    }
 
-    if (!feedMsg) { 
+    if (!feedMsg) {
         progress.style.visibility = "hidden"
 
         alertBoxValue = 1
@@ -393,9 +394,65 @@ async function feed_submit_func() {
         document.getElementById("feed_form").reset()
 
         alertBoxValue = 1
-        return showAlertBox(`Successfull :- ${a.message} `, true , "Feedback Submited")
+        return showAlertBox(`Successfull :- ${a.message} `, true, "Feedback Submited")
     }
 
+
+}
+
+
+// // // <----------------------------- Scroll to top --------------------------------------------------------------------------------->
+
+document.addEventListener("scroll", scrollProg)
+// This is listing scoll even and giving self function attached with scroll.
+
+const scrollDemoElement = document.querySelector("#progress_top")      // Element that is going to increase width.
+
+// This is for all progress bar whit scroll down
+function scrollProg() {
+    // console.log("HI")
+
+    // Total height of our web page.
+    const totalHeigthWebPage = document.body.scrollHeight;
+
+    // Scoll distance from top.
+    const currentDistanceFromTop = document.documentElement.scrollTop;
+
+    // This means srollBar height 
+    const windowHeight = document.documentElement.clientHeight;
+
+    // console.log(totalHeigthWebPage)
+    // console.log(currentDistanceFromTop)
+    // console.log(windowHeight)
+
+    // Simply calculating percent of scrolled from top(very simply way).
+    const scrollPercentage = (currentDistanceFromTop / (totalHeigthWebPage - windowHeight)) * 100
+
+
+    // console.log(scrollPercentage)
+
+    // Top scroll btn hide or show start from here.
+    // Here i am going to show top btn on the percent of scroll
+
+    // // // Go to top show after scroll atleast 20 
+    if (scrollPercentage < 15) {
+        document.getElementById("top_scroll_btn").style.visibility = "hidden"
+    } else {
+        document.getElementById("top_scroll_btn").style.visibility = "visible"
+    }
+
+
+    // // // This use to show progess bar and at 0-3% hide space.
+    if (scrollPercentage > 3) {
+        document.getElementById("progress_top").style.display = "block"
+    } else {
+        document.getElementById("progress_top").style.display = "none"
+    }
+
+    // console.log(Math.round(scrollPercentage)) 
+    // Fatching width with our progress bar width.
+
+    scrollDemoElement.style.width = Math.round(scrollPercentage) + "%"
 
 }
 
@@ -430,11 +487,11 @@ function cancelFunc() {
 function showAlertBox(errMsg = "No Page found", sound = false, alertName = "Error") {
 
     document.querySelector(".error_altert").style.visibility = "visible"
-    
-    if( sound == true){
+
+    if (sound == true) {
         let audio = new Audio("sound/done.mp3")
         audio.play()
-    }else{
+    } else {
         let audio = new Audio("sound/error.mp3")
         audio.play()
     }

@@ -432,7 +432,8 @@ let clearRegsDetails = ()=>{
 
 
 let periviousFeedBack = localStorage.getItem("FeedBackForAk")
-if(periviousFeedBack){
+console.log(periviousFeedBack)
+if(periviousFeedBack != null){
     document.querySelector(".show_All_FeedBack_main").style.display = "flex"
 }
 
@@ -447,6 +448,7 @@ async function showAllFeedBack(){
 
     let prrocessAllFeed = document.getElementById("process_all_feeds")
     prrocessAllFeed.style.visibility = "visible"
+    // prrocessAllFeed.style.display = "block";
 
 
     let data = await fetch("https://feedback-hzwx.onrender.com/getFeedback/intern")
@@ -489,12 +491,7 @@ async function showAllFeedBack(){
     }
 
 
-
-
-    let mainDivOfAllFeed = document.getElementById("all_feedback")
-
     let temp = ""
-
     for(let i=0 ; i<20 ; i++){
         temp += `  
         <div class="user_feeds_are">
@@ -506,7 +503,8 @@ async function showAllFeedBack(){
         </div>`
     }
 
-    mainDivOfAllFeed.innerHTML = temp
+    // // // Set innerHtml to result div ------------->
+    document.getElementById("all_feedback").innerHTML = temp
 
 }
 

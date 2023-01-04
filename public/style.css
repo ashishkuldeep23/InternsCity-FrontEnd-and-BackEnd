@@ -703,12 +703,10 @@ footer>.right {
 }
 
 
-
 .show_All_FeedBack_main{
     display: none;
     height: auto;
     width: 100%;
-    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2vh;
@@ -718,13 +716,6 @@ footer>.right {
     border-bottom: 2px solid blue;
 
     border-radius: 5vh;
-
-}
-
-#all_feedback{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
 
@@ -755,7 +746,12 @@ footer>.right {
     background-image: linear-gradient(to right, tomato,cyan);
     visibility: hidden;
     animation: progressForLoadData 0.5s infinite alternate-reverse ease-in-out;
+}
 
+#all_feedback{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 
@@ -1319,7 +1315,7 @@ footer>.right {
         width: 65%;
         height: auto;
         margin: 10vh;
-        height: 90vh;
+        height: 95vh;
     }
 
     .left_content_foot {

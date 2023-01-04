@@ -6,19 +6,21 @@ const nameReg = (/^[a-zA-Z]+([\s][a-zA-Z]+)*$/);
 const emailReg = (/^([a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,6})*$/);
 const mobileReg = (/^(\+\d{1,3}[- ]?)?\d{10}$/);
 
+
 // // // Network Status ---------->
-
-
 let network = navigator.onLine
 // console.log(network)
-
 // if(network == false){
 //     alert("Please connect with network.\nBecause network connection needed to DB call.  ")
 // }
 
 
 
-// // // <------------------------------------- Regestation submit ------------------------------------->
+
+
+
+
+// // // <-------------------------------------<<<<< Regestation submit >>>>>>>>>>------------------------------------->
 
 // // // 1. On submit btn click --->
 let reg_submit = document.getElementById("reg_submit")
@@ -32,6 +34,7 @@ EnterOnInternSubmit.onkeydown = function (e) {
     }
 };
 
+// // // Main func --->
 async function reg_submit_func() {
 
     if (network == false) {
@@ -123,7 +126,14 @@ async function reg_submit_func() {
 
 
 
-// // // <------------------------------------------------- Search Clg Submit ------------------------------------------------------------>
+
+
+
+
+
+
+
+// // // <---------------------------------------------<<<<< Search Clg Submit >>>>>>-------------------------------------------->
 
 // // // 1. On submit btn click --->
 let searchClg = document.getElementById("clg_name_submit")
@@ -230,7 +240,12 @@ async function searchClgName() {
 
 
 
-// // // <------------------------------------------------------------- Create Clg Submit ----------------------------------------------------->
+
+
+
+
+
+// // // <------------------------------------------------<<<< Create Clg Submit >>>>>----------------------------------------------->
 
 // // // 1. On submit btn click --->
 let createClg = document.getElementById("create_clg_btn")
@@ -246,10 +261,9 @@ EnterOnCreateClg.onkeydown = function (e) {
 
 
 // // // Imp regex here ----->
-
 const clgFullNmaeRegex = /^([a-zA-Z \_\.\-\,]{5,})*$/
 
-
+// // // Main function ------>
 async function createNewClg() {
     if (network == false) {
         alertBoxValue = 1
@@ -262,11 +276,21 @@ async function createNewClg() {
 
     let clg_fullname_create = document.getElementById("clg_Full_name").value.trim()
 
+    if(!clg_shortname_create){
+        alertBoxValue = 1
+        return showAlertBox(`Error : Please give short name of college.`, false)
+    }
 
     if (!clgNameRegex.test(clg_shortname_create)) {
         alertBoxValue = 1
         return showAlertBox(`Error : Given college Shortname (${clg_shortname_create}) is not valid.`, false)
     }
+
+    if(!clg_fullname_create){
+        alertBoxValue = 1
+        return showAlertBox(`Error : Please give Full name of college.`, false)
+    }
+
 
     if (!clgFullNmaeRegex.test(clg_fullname_create)) {
         alertBoxValue = 1
@@ -318,12 +342,19 @@ async function createNewClg() {
 
 
 
-// // // <----------------------------------------------------------- Feedback --------------------------------------------------------->
+
+
+
+
+
+
+// // // <--------------------------------------------<<<< Feedback >>>>>------------------------------------------------->
 
 
 let feed_submit = document.getElementById("feed_submit_btn")
 feed_submit.addEventListener("click", feed_submit_func)
 
+// // // Main func --->
 async function feed_submit_func() {
 
     if (network == false) {
@@ -347,7 +378,6 @@ async function feed_submit_func() {
             checkedRadio = i.value
         }
     }
-
 
     if (!feedName) {
         feedName = "Guest"
@@ -412,32 +442,24 @@ async function feed_submit_func() {
 }
 
 
-// // // <--------- Clear form ------------------>
-
-
-let clearClgDetails = ()=>{
-    document.getElementById('createClgForm').reset() 
-}
-let clearRegsDetails = ()=>{
-    document.getElementById('regesterForm').reset()
-}
 
 
 
 
 
 
-// // // // <------------------- Show all feedback func ---------------------------------->
 
+
+// // // // <-----------------------------------<<<<< Show all feedback func >>>>>>-------------------------------------------->
 
 
 let periviousFeedBack = localStorage.getItem("FeedBackForAk")
-console.log(periviousFeedBack)
-if(periviousFeedBack != null){
+// console.log(periviousFeedBack)
+if(periviousFeedBack){
     document.querySelector(".show_All_FeedBack_main").style.display = "flex"
 }
 
-
+// // // Main func --->
 async function showAllFeedBack(){
 
     if (network == false) {
@@ -467,8 +489,7 @@ async function showAllFeedBack(){
     if (a.status == true) {
         prrocessAllFeed.style.visibility = "hidden"
 
-        let mainDivOfAllFeeds = document.getElementById("all_feedback")
-
+        
         let temp = ""
 
         for(let i=0 ; i<a.data.length ; i++){
@@ -479,9 +500,12 @@ async function showAllFeedBack(){
                 <p>Count :- ${i+1} </p>
                 <p>Message:- ${a.data[i].feedbackMsg}</p>
                 <p>Time:- ${a.data[i].whenCreated}</p>
-            </div>`
+            </div>
+            `
         }
-    
+        
+        let mainDivOfAllFeeds = document.getElementById("all_feedback")
+
         mainDivOfAllFeeds.innerHTML = temp
         
         window.scrollTo({ top : mainDivOfAllFeeds.offsetTop - 50})
@@ -490,29 +514,18 @@ async function showAllFeedBack(){
         return showAlertBox(`Successfull :- ${a.message} `, true, "All Feedback fetched")
     }
 
-
-    let temp = ""
-    for(let i=0 ; i<20 ; i++){
-        temp += `  
-        <div class="user_feeds_are">
-            <h3>Name :- Ashish Kuldeep</h3>
-            <p>Type :- Feedback</p>
-            <p>Count :- ${i+1} </p>
-            <p>Time :- ${Date.now()}</p>
-            <p>Message :- Very nice website!</p>
-        </div>`
-    }
-
-    // // // Set innerHtml to result div ------------->
-    document.getElementById("all_feedback").innerHTML = temp
-
 }
 
 
 
 
 
-// // // <----------------------------- Scroll to top --------------------------------------------------------------------------------->
+
+
+
+
+
+// // // <--------------------------------------<<<<<<<< Scroll to top >>>>>------------------------------------------------------------->
 
 document.addEventListener("scroll", scrollProg)
 // This is listing scoll even and giving self function attached with scroll.
@@ -574,9 +587,11 @@ function scrollProg() {
 
 
 
-// // // ---------------------------------------------------- Some Imp parts like alertbox and sound ---------------------------------->
 
 
+
+
+// // // ----------------------------------------<<<<<<< Some Imp parts like alertbox and sound >>>>>>>>>>>>---------------------------------->
 
 
 // // // Alert box cancel ----->
@@ -611,7 +626,7 @@ function showAlertBox(alertMsg ="No Page found", sound = false, alertName= "Erro
 
     document.querySelector(".error_altert").style.visibility = "visible"
 
-    document.querySelector(".error_altert_content").innerHTML = `<h1>${alertName} >>> </h1>\n<h3>${alertMsg}</h3>`
+    document.querySelector(".error_altert_content").innerHTML = `<h1>${alertName} ==> </h1>\n<h3>${alertMsg}</h3>`
 
 }
 
@@ -626,10 +641,23 @@ document.querySelector("body").onkeydown = (e) => {
 
 
 
+// // // <-------------------------------<<<<<< Clear form >>>>>>>--------------------------------------->
+
+// // // Clg form clear -->
+let clearClgDetails = ()=>{
+    document.getElementById('createClgForm').reset() 
+}
+
+// // // Regs form clear -->
+let clearRegsDetails = ()=>{
+    document.getElementById('regesterForm').reset()
+}
 
 
 
-// // // <--------------------------------------------------------------------- Make data sequre here -------------------------->
+
+
+// // // <---------------------------------------------<<<<<<< Make data sequre here >>>>>>>>-------------------------->
 
 
 // // // // Function to keep data sequre, data like Mobile no. or email

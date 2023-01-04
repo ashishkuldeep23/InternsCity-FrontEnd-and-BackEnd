@@ -123,7 +123,9 @@
 }
 
 .intro>.right>img {
+    height: 90%;
     width: 80%;
+    object-fit: cover;
     margin: 15px;
     border-radius: 10px;
     border: 1px solid darkblue;
@@ -1176,6 +1178,8 @@ footer>.right {
         font-size: 0.75rem;
     }
 
+
+
     .intro>.left {
         width: 40%;
         font-size: 0.8rem;
@@ -1193,6 +1197,7 @@ footer>.right {
         align-items: center;
         height: auto;
         margin: 5vh 0;
+        margin-top: 0;
     }
 
     .regestation>.left {

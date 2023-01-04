@@ -133,7 +133,7 @@
 
 
                         <input type="button" id="reg_submit" value="Submit">
-
+                        <input type="button"  value="Clear" onclick="clearRegsDetails()" class="clear_btn"  >
                     </div>
                 </form>
 
@@ -172,7 +172,7 @@
             <div class="allContent_create_clg">
 
                 <div class="left">
-                    <form id="createClgForm" action="">
+                    <form id="createClgForm" action="/">
 
                         <div class="clg_create_from">
 
@@ -187,6 +187,7 @@
                             </div>
 
                             <input type="button" id="create_clg_btn" value="Submit">
+                            <input  type="button"  value="Clear" onclick="clearClgDetails()" class="clear_btn" >
 
                         </div>
                     </form>
@@ -294,6 +295,27 @@
         <!-- Go to btn with img -->
         <a href="#header"> <img src="https://cdn0.iconfinder.com/data/icons/evericons-16px/16/circle-arrow-top-512.png" alt="Top scroll" id="top_scroll_btn"></a>
        
+
+        <div class="show_All_FeedBack_main">
+            <h1>Click on Show Button to see all Feedbacks</h1>
+            <input type="button" value="Show All Feedbacks" onclick="showAllFeedBack()" id="show_all_feed_btn">
+
+            <div id="process_all_feeds"></div>
+
+            <div id="all_feedback">
+
+                <!-- <div class="user_feeds_are">
+                    <h3>Name :- Ashish Kuldeep</h3>
+                    <p>Type :- Feedback</p>
+                    <p>Count :- </p>
+                    <p>Time :- </p>
+                    <p>Message :- Very nice website!</p>
+                </div> -->
+
+               
+            </div>
+
+        </div>
 
 
         <script type="text/javascript" src="home.js"></script>

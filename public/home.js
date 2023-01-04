@@ -109,12 +109,13 @@ async function reg_submit_func() {
 
         outPutEle.innerHTML = `<h3>Name : ${a.data.name}</h3>\n<h3>Email : ${a.data.email}</h3>\n<h3>Mobile : ${a.data.mobile}</h3>\n<h3>College Name : ${clg_name}</h3>`
 
-        window.scrollTo({ top: outPutEle.offsetTop - 150 })
+        window.scrollTo({ top : outPutEle.offsetTop - 150 })
+
         // // Set data to empty --->
         document.getElementById("regesterForm").reset()
 
         alertBoxValue = 1
-        return showAlertBox(`Successfull :- ${a.message} `, "Intern Created", true)
+        return showAlertBox(`Successfull :- ${a.message}` , true , "Intern Created" )
     }
 
 
@@ -221,7 +222,6 @@ async function searchClgName() {
         // // // When data loaded successfully then we not want progess bar
         progress.style.visibility = "hidden"
 
-
     }
 
 }
@@ -230,7 +230,7 @@ async function searchClgName() {
 
 
 
-// // // <----------------------------------------------------------------------- Create Clg Submit ------------------------------------->
+// // // <------------------------------------------------------------- Create Clg Submit ----------------------------------------------------->
 
 // // // 1. On submit btn click --->
 let createClg = document.getElementById("create_clg_btn")
@@ -299,18 +299,19 @@ async function createNewClg() {
         // // // Data put for show successfull creation -->
 
         let outPutEle = document.getElementById("right_clg_created")
+
         outPutEle.innerHTML = `<h1>College Details (created) Are :- </h1>\n
         <h2>Short Name : ${a.data.name}</h2>\n
         <h3>Full Name : ${a.data.fullName}</h3>\n
         <h2>Unique Id : ${a.data._id}</h2>\n`
 
+        window.scrollTo({ top : outPutEle.offsetTop - 150 })
+        
         // // // Set value to normal ---->
         document.getElementById("createClgForm").reset()
 
-        window.scrollTo({ top: outPutEle.offsetTop - 150 })
-
         alertBoxValue = 1
-        return showAlertBox(`Successfull :- ${a.message} `, "College Created!", true)
+        return showAlertBox(`Successfull :- ${a.message} `, true , "College Created!")
     }
 
 }
@@ -346,7 +347,6 @@ async function feed_submit_func() {
             checkedRadio = i.value
         }
     }
-
 
 
     if (!feedName) {
@@ -393,12 +393,125 @@ async function feed_submit_func() {
 
         document.getElementById("feed_form").reset()
 
+        // // // Showing div that contan all feeds ----------->
+        let allFeedMainDiv = document.querySelector(".show_All_FeedBack_main")
+        allFeedMainDiv.style.display = "flex"
+
+        // // // Scroll to hidden div ---->
+        window.scrollTo({ top : allFeedMainDiv.offsetTop - 50})
+
+        // // // Set localstorage for ferture ----------------->
+        localStorage.setItem("FeedBackForAk" , "1")
+
+
         alertBoxValue = 1
         return showAlertBox(`Successfull :- ${a.message} `, true, "Feedback Submited")
     }
 
 
 }
+
+
+// // // <--------- Clear form ------------------>
+
+
+let clearClgDetails = ()=>{
+    document.getElementById('createClgForm').reset() 
+}
+let clearRegsDetails = ()=>{
+    document.getElementById('regesterForm').reset()
+}
+
+
+
+
+
+
+// // // // <------------------- Show all feedback func ---------------------------------->
+
+
+
+let periviousFeedBack = localStorage.getItem("FeedBackForAk")
+if(periviousFeedBack){
+    document.querySelector(".show_All_FeedBack_main").style.display = "flex"
+}
+
+
+async function showAllFeedBack(){
+
+    if (network == false) {
+        alertBoxValue = 1
+        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
+    }
+
+
+    let prrocessAllFeed = document.getElementById("process_all_feeds")
+    prrocessAllFeed.style.visibility = "visible"
+
+
+    let data = await fetch("https://feedback-hzwx.onrender.com/getFeedback/intern")
+
+    let a = await data.json()
+
+
+    if (a.status == false) {
+        progress.style.display = "hidden"
+
+        alertBoxValue = 1
+        return showAlertBox(`Error :- ${a.message}`, false)
+    }
+
+
+    if (a.status == true) {
+        prrocessAllFeed.style.visibility = "hidden"
+
+        let mainDivOfAllFeeds = document.getElementById("all_feedback")
+
+        let temp = ""
+
+        for(let i=0 ; i<a.data.length ; i++){
+            temp += `  
+            <div class="user_feeds_are">
+                <h3>Name :- ${a.data[i].feedbackName}</h3>
+                <p>Type :- ${a.data[i].feedbackType}</p>
+                <p>Count :- ${i+1} </p>
+                <p>Message:- ${a.data[i].feedbackMsg}</p>
+                <p>Time:- ${a.data[i].whenCreated}</p>
+            </div>`
+        }
+    
+        mainDivOfAllFeeds.innerHTML = temp
+        
+        window.scrollTo({ top : mainDivOfAllFeeds.offsetTop - 50})
+
+        alertBoxValue = 1
+        return showAlertBox(`Successfull :- ${a.message} `, true, "All Feedback fetched")
+    }
+
+
+
+
+    let mainDivOfAllFeed = document.getElementById("all_feedback")
+
+    let temp = ""
+
+    for(let i=0 ; i<20 ; i++){
+        temp += `  
+        <div class="user_feeds_are">
+            <h3>Name :- Ashish Kuldeep</h3>
+            <p>Type :- Feedback</p>
+            <p>Count :- ${i+1} </p>
+            <p>Time :- ${Date.now()}</p>
+            <p>Message :- Very nice website!</p>
+        </div>`
+    }
+
+    mainDivOfAllFeed.innerHTML = temp
+
+}
+
+
+
 
 
 // // // <----------------------------- Scroll to top --------------------------------------------------------------------------------->
@@ -484,9 +597,7 @@ function cancelFunc() {
 }
 
 
-function showAlertBox(errMsg = "No Page found", sound = false, alertName = "Error") {
-
-    document.querySelector(".error_altert").style.visibility = "visible"
+function showAlertBox(alertMsg ="No Page found", sound = false, alertName= "Error") {
 
     if (sound == true) {
         let audio = new Audio("sound/done.mp3")
@@ -500,8 +611,9 @@ function showAlertBox(errMsg = "No Page found", sound = false, alertName = "Erro
     // let audio = new Audio(file)
     // audio.play()
 
-    let pasteErrorMsg = document.querySelector(".error_altert_content")
-    pasteErrorMsg.innerHTML = `<h1>${alertName} >>> </h1>\n<h3>${errMsg}</h3>`
+    document.querySelector(".error_altert").style.visibility = "visible"
+
+    document.querySelector(".error_altert_content").innerHTML = `<h1>${alertName} >>> </h1>\n<h3>${alertMsg}</h3>`
 
 }
 

@@ -29,7 +29,7 @@
 .nav {
     height: 5vh;
     width: 100%;
-    background-image: linear-gradient(to right, #553c9a, #b393d3);
+    background-image: linear-gradient(to right, #553c9a, #b393d3);  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -504,7 +504,7 @@
 
 
 footer {
-    height: 95vh;
+    height: 100vh;
     width: 100%;
     background-color: #14248A;
 
@@ -542,17 +542,6 @@ footer>.left {
     padding: 5vh 1vh;
 }
 
-.feed_form>h1 {
-    font-weight: 800;
-    font-size: 2rem;
-    position: relative;
-    top: -65px;
-    background-color: yellow;
-    color: black;
-    padding: 0.5vh;
-    border-radius: 2vh;
-}
-
 
 .feed_form {
     display: flex;
@@ -565,6 +554,19 @@ footer>.left {
     transition: ease-in-out border-radius .3s;
 }
 
+.feed_form>h1 {
+    font-weight: 800;
+    font-size: 2rem;
+    position: relative;
+    top: -65px;
+    left: 30%;
+    background-color: yellow;
+    color: black;
+    padding: 0.5vh;
+    border-radius: 2vh;
+}
+
+
 .feed_form:hover{
     border-radius: 5vh;
 }
@@ -575,7 +577,6 @@ footer>.left {
 }
 
 #feed_name{
-  
     height: 4vh;
     font-size: 1.2rem;
     border-radius: 1vh;
@@ -700,6 +701,99 @@ footer>.right {
     text-align: center;
     color: white;
 }
+
+
+
+.show_All_FeedBack_main{
+    display: none;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh;
+    background-color: #d4b1e15f;
+
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
+
+    border-radius: 5vh;
+
+}
+
+#all_feedback{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+#show_all_feed_btn{
+    font-size: 1.4rem;
+    border-radius: 1vh;
+    font-weight: 600;
+    color: white;
+    background-color: black;
+}
+
+#show_all_feed_btn:hover{
+    color: pink;
+    border-radius: 0;
+}
+
+#show_all_feed_btn:active{
+    background-color: yellow;
+    color: red;
+}
+
+
+#process_all_feeds{
+    height: 5px;
+    width: 100%;
+    border-radius: 2vh;
+    margin: 1vh 0;
+    background-image: linear-gradient(to right, tomato,cyan);
+    visibility: hidden;
+    animation: progressForLoadData 0.5s infinite alternate-reverse ease-in-out;
+
+}
+
+
+
+/* Below is used in user feedback result */
+.user_feeds_are{
+    height: auto;
+    width: 40vh;
+    background-color: rgba(56, 244, 219, 0.292);
+    border-left: 4px solid red;
+    border-right: 4px solid red;
+
+    margin: 2vh 1vh;
+    padding: 1vh;
+
+    font-size: 1.1rem;
+
+    border-radius: 2vh;
+
+}
+
+
+
+
+
+
+
+/* Clear Btn style */
+.clear_btn{
+    background-color: rgb(202, 39, 39);
+    height: 20px; 
+    width: 40px; 
+    color: white; 
+    border-radius:1vh; 
+    font-weight: 600;
+}
+
+
 
 
 /* This class style used in search result --> */
@@ -944,8 +1038,8 @@ footer>.right {
     }
 
     .clg_create_from>div>input {
-        font-size: 0.8rem;
-
+        font-size: 1rem;
+        width: 60vw;
     }
 
     #create_clg_btn {
@@ -986,17 +1080,17 @@ footer>.right {
         padding: 5vh 1vh;
     }
 
+    .feed_form{
+        margin-top:0px;
+    }
+
     .feed_form > h1{
         padding: 0.5vh;
         font-size: 1.5rem;
         width: 20vh;
         border-radius: 1vh;
-        left: 45px;
+        left: 25%;
         top: -60px;
-    }
-
-    .feed_form{
-        margin-top:0px;
     }
 
     #feed_name{
@@ -1029,9 +1123,9 @@ footer>.right {
     }
 
     .logos {
-        margin: 1vh 0.5vh;
-        height: 20px;
-        width: 20px;
+        margin: 0.5vh;
+        height: 25px;
+        width: 25px;
         background-color: #fff;
         border-radius: 10px;
     }
@@ -1176,9 +1270,7 @@ footer>.right {
     .allContent_create_clg>.right {
         width: 100%;
         margin-bottom: 7vh;
-
         font-size: 0.5rem;
-
     }
 
 
@@ -1234,17 +1326,19 @@ footer>.right {
         padding: 5vh ;
     }
 
+
+    .feed_form{
+        width: 100%;
+    }
+
+    
     .feed_form > h1{
         padding: 0.5vh;
         font-size: 1.5rem;
         width: 20vh;
         border-radius: 1vh;
-        left: 45px;
+        left: 28%;
         top: -30px;
-    }
-
-    .feed_form{
-        width: 100%;
     }
 
     #feed_msg {

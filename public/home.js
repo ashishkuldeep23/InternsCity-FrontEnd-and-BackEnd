@@ -348,7 +348,7 @@ async function createNewClg() {
 
 
 
-// // // <--------------------------------------------<<<< Feedback >>>>>------------------------------------------------->
+// // // <--------------------------------------------<<<< Post Feedback >>>>>------------------------------------------------->
 
 
 let feed_submit = document.getElementById("feed_submit_btn")
@@ -419,8 +419,8 @@ async function feed_submit_func() {
     }
 
     if (a.status == true) {
+        // // // Form reset and process hide
         progress.style.visibility = "hidden"
-
         document.getElementById("feed_form").reset()
 
         // // // Showing div that contan all feeds ----------->
@@ -433,6 +433,8 @@ async function feed_submit_func() {
         // // // Set localstorage for ferture ----------------->
         localStorage.setItem("FeedBackForAk" , "1")
 
+        // // // set value 0 to alReady all feeds fetched --->
+        alReadyFeedShown = 0
 
         alertBoxValue = 1
         return showAlertBox(`Successfull :- ${a.message} `, true, "Feedback Submited")
@@ -452,12 +454,17 @@ async function feed_submit_func() {
 
 // // // // <-----------------------------------<<<<< Show all feedback func >>>>>>-------------------------------------------->
 
-
+// // // Below is for checking previously submited feedback or not ----->
 let periviousFeedBack = localStorage.getItem("FeedBackForAk")
 // console.log(periviousFeedBack)
 if(periviousFeedBack){
     document.querySelector(".show_All_FeedBack_main").style.display = "flex"
 }
+
+
+// // // All ready fetched feedbacks?? ---->
+
+let alReadyFeedShown = 0
 
 // // // Main func --->
 async function showAllFeedBack(){
@@ -465,6 +472,11 @@ async function showAllFeedBack(){
     if (network == false) {
         alertBoxValue = 1
         return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
+    }
+
+    if(alReadyFeedShown == 1){
+        alertBoxValue = 1
+        return showAlertBox("Feedbacks are already fetched , please scroll to bottom or refresh the window.", false , "Wrong request")
     }
 
 
@@ -487,9 +499,11 @@ async function showAllFeedBack(){
 
 
     if (a.status == true) {
+        // // // Process hide and already shown value ---->
         prrocessAllFeed.style.visibility = "hidden"
-
+        alReadyFeedShown = 1
         
+        // // // Temp var to store all feeds from DB -->
         let temp = ""
 
         for(let i=0 ; i<a.data.length ; i++){
@@ -503,11 +517,12 @@ async function showAllFeedBack(){
             </div>
             `
         }
-        
+    
+        // // // setting inner html to outPut div
         let mainDivOfAllFeeds = document.getElementById("all_feedback")
-
         mainDivOfAllFeeds.innerHTML = temp
-        
+
+        // // // After successfull fetched data scrolling window till div --->
         window.scrollTo({ top : mainDivOfAllFeeds.offsetTop - 50})
 
         alertBoxValue = 1

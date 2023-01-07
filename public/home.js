@@ -91,7 +91,7 @@ async function reg_submit_func() {
         },
         body: JSON.stringify(body)
     }
-    let data = await fetch("/functionup/interns", option)
+    let data = await fetch("/interns", option)
     // console.log(data)
 
     // console.log(await data.json())
@@ -108,11 +108,11 @@ async function reg_submit_func() {
 
         // // // Data put for show successfull regestation -->
 
-        let outPutEle = document.getElementById("intern_output")
+        let outPutEleForIntern = document.getElementById("intern_output")
 
-        outPutEle.innerHTML = `<h3>Name : ${a.data.name}</h3>\n<h3>Email : ${a.data.email}</h3>\n<h3>Mobile : ${a.data.mobile}</h3>\n<h3>College Name : ${clg_name}</h3>`
+        outPutEleForIntern.innerHTML = `<h3>Name : ${a.data.name}</h3>\n<h3>Email : ${a.data.email}</h3>\n<h3>Mobile : ${a.data.mobile}</h3>\n<h3>College Name : ${clg_name}</h3>`
 
-        window.scrollTo({ top : outPutEle.offsetTop - 150 })
+        window.scrollTo({ top : outPutEleForIntern.offsetTop - 150 })
 
         // // Set data to empty --->
         document.getElementById("regesterForm").reset()
@@ -184,7 +184,7 @@ async function searchClgName() {
         }
     }
 
-    let data = await fetch(`/functionup/collegeDetails?collegeName=${clg_name_search}`, option)
+    let data = await fetch(`/collegeDetails?collegeName=${clg_name_search}`, option)
 
     // console.log(data)
 
@@ -310,7 +310,7 @@ async function createNewClg() {
         body: JSON.stringify(body)
     }
 
-    let data = await fetch("/functionup/colleges", option)
+    let data = await fetch("/colleges", option)
 
     let a = await data.json()
 
@@ -322,14 +322,15 @@ async function createNewClg() {
     if (a.status == true) {
         // // // Data put for show successfull creation -->
 
-        let outPutEle = document.getElementById("right_clg_created")
+        let outPutEleForClg = document.getElementById("right_clg_created")
 
-        outPutEle.innerHTML = `<h1>College Details (created) Are :- </h1>\n
+        outPutEleForClg.innerHTML = `<h1>College Details (created) Are :- </h1>\n
         <h2>Short Name : ${a.data.name}</h2>\n
         <h3>Full Name : ${a.data.fullName}</h3>\n
-        <h2>Unique Id : ${a.data._id}</h2>\n`
+        <h2>Id : ${a.data._id}</h2>\n`
 
-        window.scrollTo({ top : outPutEle.offsetTop - 150 })
+
+        window.scrollTo({ top : document.getElementById("create_clg").offsetTop - 150 })
         
         // // // Set value to normal ---->
         document.getElementById("createClgForm").reset()

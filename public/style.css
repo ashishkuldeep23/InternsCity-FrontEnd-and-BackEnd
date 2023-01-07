@@ -88,19 +88,22 @@
 .intro {
     background-image: linear-gradient(to right, #CCCCFF, #FFFFFF);
     width: 100%;
-    height: 70vh;
     display: flex;
-    padding-bottom: 4vh;
-
+    justify-content: space-evenly;
+    padding-bottom: 2vh;
+    height: auto;
+    
 }
 
 
 .intro>.left {
-    width: 40%;
+    width: 45%;
+    padding: 2.5vh ;    
+    font-size: 1.1rem;
+    
+    height: auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
+    justify-items: center;
 
 }
 
@@ -116,15 +119,14 @@
 
 
 .intro>.right {
-    width: 60%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .intro>.right>img {
-    height: 90%;
-    width: 80%;
+    width: 45vw;
     object-fit: cover;
     margin: 15px;
     border-radius: 10px;
@@ -344,20 +346,20 @@
 
 .allContent_create_clg {
     padding: 2vh 0;
-    width: 95%;
+    width: 90%;
     height: 70%;
-    border-top: 2px solid #169873;
-    border-bottom: 2px solid #169873;
     border-radius: 50%;
-    box-shadow: 10px 10px 20px 20px #805D93;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    transition: ease-in-out 0.3s transform , box-shadow;
 }
 
 .allContent_create_clg:hover {
-    transform: scale(1.01);
-    box-shadow: 10px 10px 20px 20px #9780a3;
+    transform: scaleY(1.05) scaleX(1.025);
+    box-shadow: 10px 10px 20px 20px #805D93;
+
 }
 
 
@@ -544,6 +546,10 @@ footer>.left {
     padding: 5vh 1vh;
 }
 
+.left_content_foot:hover{
+    box-shadow: 10px 0px 10px white;
+    
+}
 
 .feed_form {
     display: flex;
@@ -649,6 +655,10 @@ footer>.right {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.right_content_foot:hover{
+    box-shadow: 0px -10px 10px white;
 }
 
 .dev_img_social {
@@ -758,6 +768,7 @@ footer>.right {
 
 
 
+
 /* Below is used in user feedback result */
 .user_feeds_are{
     height: auto;
@@ -765,19 +776,18 @@ footer>.right {
     background-color: rgba(56, 244, 219, 0.292);
     border-left: 4px solid red;
     border-right: 4px solid red;
-
     margin: 2vh 1vh;
     padding: 1vh;
-
     font-size: 1.1rem;
-
     border-radius: 2vh;
 
 }
 
-
-
-
+.user_feeds_are:hover{
+    transform: scale(1.1);
+    border-top:1px solid red ;
+    border-bottom:1px solid red ;
+}
 
 
 
@@ -1067,10 +1077,8 @@ footer>.right {
     }
 
     footer>.left {
-        width: 85%;
-        margin: 10vh 0;
-        height: 85vh;
-
+        width: 90%;
+        margin-top: 5vh;
     }
 
     .left_content_foot {
@@ -1181,10 +1189,13 @@ footer>.right {
 
 
     .intro>.left {
-        width: 40%;
+        width: 50%;
         font-size: 0.8rem;
         padding-left: 5vh;
-        padding-top: 15vh;
+        padding-top: 5vh;
+    }
+    .intro>.right {
+        width: 50%;
     }
 
     .intro>.left>ul>h1 {
@@ -1196,8 +1207,6 @@ footer>.right {
         flex-direction: column;
         align-items: center;
         height: auto;
-        margin: 5vh 0;
-        margin-top: 0;
     }
 
     .regestation>.left {

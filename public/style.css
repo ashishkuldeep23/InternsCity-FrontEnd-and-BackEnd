@@ -66,7 +66,8 @@
 
 .nav>ul>li :hover {
 
-    color: #ff0066;
+    /* color: #ff0066; */
+    color: yellow;
     border-top: 2px solid #ccffff;
     border-bottom: 1px solid #ccffff;
 
@@ -228,21 +229,19 @@
     margin-left: 25%;
     height: 6vh;
     width: 15vw;
-
     background-color: #4ef037;
     color: white;
     font-size: 2vw;
     font-weight: 700;
     letter-spacing: 5px;
-
     border-radius: 15px;
-
 }
 
 
 #reg_submit:hover {
-    color: black;
-    border-radius: 5vh;
+    color: yellow;
+    border-radius: 7vh;
+    cursor: pointer;        
 }
 
 #reg_submit:active {
@@ -297,17 +296,6 @@
 }
 
 
-#progress {
-    height: 5px;
-    width: 70%;
-    border-radius: 2vh;
-    margin: 1.5vh 0;
-    background-image: linear-gradient(to right, red, blue);
-    visibility: hidden;
-    animation: progressForLoadData 0.3s infinite alternate-reverse ease-in-out;
-}
-
-
 
 #clg_name_search:active {
     padding: 2px;
@@ -324,12 +312,25 @@
 #clg_name_submit:hover {
     color: yellow;
     border-radius: 5vh;
+    cursor: pointer;
 }
 
 #clg_name_submit:active {
     color: black;
     background-color: darkblue;
 }
+
+#progress {
+    height: 5px;
+    width: 70%;
+    border-radius: 2vh;
+    margin: 1.5vh 0;
+    background-image: linear-gradient(to right, red, blue);
+    visibility: hidden;
+    animation: progressForLoadData 0.3s infinite alternate-reverse ease-in-out;
+}
+
+
 
 #create_clg {
     height: 90vh;
@@ -432,6 +433,8 @@
 
 #create_clg_btn:hover {
     border-radius: 7vh;
+    color: yellow;
+    cursor: pointer;
 }
 
 
@@ -443,12 +446,13 @@
 
 
 .allContent_create_clg>.right {
-    background-color: rgb(236, 240, 113);
+    /* background-color: rgb(236, 240, 113); */
+    background-color: rgb(90, 240, 130);
     height: 90%;
     width: 40%;
     border: 1px solid #562C2C;
     border-radius: 5vh;
-    box-shadow: inset 15px 15px 25px white, 7px 0px 15px red, 5px 5px 25px green;
+    box-shadow: inset 15px 15px 25px white, 7px 0px 15px red, 5px 5px 25px gray;
 
     display: flex;
     flex-direction: column;
@@ -462,7 +466,9 @@
     transform: scale(1.02);
 }
 
-#feedback {
+/* Forget where used ----->  */
+
+/* #feedback {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -480,13 +486,13 @@
 }
 
 .feedback_Show {
-    height: 40vh;
+    height: 40vh;   
     width: 395px;
     background-color: yellow;
     display: none;
     border: 1px solid blue;
 
-}
+} */
 
 
 .footer {
@@ -495,9 +501,7 @@
     /* background-image: linear-gradient(to left, #553c9a, #b393d3); */
 
     padding: 1vw;
-
     background-color: #14248A;
-
     text-align: center;
     font-size: 2rem;
     color: rgb(170, 155, 255);
@@ -511,11 +515,9 @@ footer {
     height: 100vh;
     width: 100%;
     background-color: #14248A;
-
     display: flex;
     justify-content: space-around;
     align-items: center;
-
 }
 
 
@@ -613,11 +615,13 @@ footer>.left {
     font-weight: 900;
     letter-spacing: 4px;
     background-color: #40ff00;
+    border-radius: 0.5vh;
 }
 
 #feed_submit_btn:hover{
-    background-color: #00ffff;
     border-radius: 2vh;
+    color: yellow;
+    cursor: pointer;
 }
 
 #feed_submit_btn:active{
@@ -715,19 +719,24 @@ footer>.right {
 }
 
 
+.show_all_feeds_topmost_div{
+    background-color: #14248A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .show_All_FeedBack_main{
     display: none;
     height: auto;
-    width: 100%;
+    width: 99%;
     flex-direction: column;
     align-items: center;
     padding: 2vh;
-    background-color: #d4b1e15f;
-
+    background-color: #e6d3ed;
     border-top: 2px solid blue;
     border-bottom: 2px solid blue;
-
-    border-radius: 5vh;
+    border-radius: 5vh; 
 }
 
 
@@ -740,8 +749,9 @@ footer>.right {
 }
 
 #show_all_feed_btn:hover{
-    color: pink;
-    border-radius: 0;
+    color: yellow;
+    border-radius: 5vh;
+    cursor: pointer;
 }
 
 #show_all_feed_btn:active{
@@ -788,6 +798,8 @@ footer>.right {
     border-top:1px solid red ;
     border-bottom:1px solid red ;
 }
+
+
 
 
 
@@ -855,7 +867,6 @@ footer>.right {
 .error_altert {
     width: 50vh;
     padding: 0.5vh;
-    height: 20vh;
     border-radius: 1vh;
     box-sizing: border-box;
     position: fixed;
@@ -869,7 +880,8 @@ footer>.right {
 
 .error_altert>div {
     border: 1px solid darkblue;
-    height: 19vh;
+    height: auto;
+    min-height: 18vh;
     border-radius: 1vh;
     background-color: white;
 }
@@ -1093,7 +1105,7 @@ footer>.right {
     .feed_form > h1{
         padding: 0.5vh;
         font-size: 1.5rem;
-        width: 20vh;
+        width: 22vh;
         border-radius: 1vh;
         left: 25%;
         top: -60px;
@@ -1146,13 +1158,12 @@ footer>.right {
     
     }
     
-    
-
     .error_altert {
         width: 40vh;
         left: 10%;
         top: 60%;
     }
+
 
 }
 
@@ -1345,7 +1356,7 @@ footer>.right {
     .feed_form > h1{
         padding: 0.5vh;
         font-size: 1.5rem;
-        width: 20vh;
+        width: 22vh;
         border-radius: 1vh;
         left: 28%;
         top: -30px;

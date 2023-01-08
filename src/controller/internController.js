@@ -36,7 +36,6 @@ const createIntern = async function (req, res) {
     try {
 
         let body = req.body
-
         let { name, mobile, email, collegeName } = body
 
         // // // If body is empty

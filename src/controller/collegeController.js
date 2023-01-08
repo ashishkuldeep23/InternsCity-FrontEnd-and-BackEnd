@@ -70,8 +70,6 @@ const createCollege = async function(req,res) {
 const getCollegeDetails = async function (req, res) {
     try {
 
-       
-
         const query = req.query
         const collegeName = query.collegeName
 
@@ -86,7 +84,6 @@ const getCollegeDetails = async function (req, res) {
         const internDetails = await internModel.find({ collegeId: collegeDetails._id , isDeleted: false }).select({ isDeleted: 0, collegeId: 0 , createdAt : 0 , updatedAt : 0 , __v : 0})
 
         // // // We want error msg from frontEnd
-        
         // if (internDetails.length == 0) return res.status(200).send({ status: false, message: `There are no intern in this college :- ${collegeName}` })
         
         return res.status(200).send({ status: true, data: { name: collegeDetails.name, fullName: collegeDetails.fullName, logolink: collegeDetails.logoLink, interns: internDetails } })

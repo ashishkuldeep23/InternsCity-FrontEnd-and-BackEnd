@@ -21,16 +21,18 @@
         <!-- Below is Error Box =========>  -->
         <div class="error_altert">
             <div>
-                <span id="cancel">Press X Key or Click Here</span>
+                <div id="cancel">Press X Key or Click Here</div>
                 <div class="error_altert_content">
                 </div>
             </div>
         </div>
 
+        <!-- Header ==> -->
         <div id="header">
             <h1>Intern City</h1>
         </div>
 
+        <!-- All navs ==> -->
         <div class="nav">
             <ul>
                 <li><a href="#header">Home Page</a></li>
@@ -43,7 +45,9 @@
 
         <!-- Below div for how many scrolled -->
         <div  id="progress_top" > </div>
+        
 
+        <!-- Introduction of website section ==> -->
         <div class="intro">
             <div class="left">
 
@@ -70,6 +74,8 @@
         </div>
 
 
+
+        <!-- Regestation section ==> -->
         <div class="regestation">
 
             <div class="left">
@@ -144,6 +150,7 @@
 
 
 
+        <!-- Get College details(by short name) section ==> -->
         <div id="get_clg_details" class="get_clg_details">
 
             <div class="clg_details_main">
@@ -168,6 +175,7 @@
         </div>
 
 
+        <!-- Create new College section ==> -->
         <div id="create_clg">
 
             <div class="allContent_create_clg">
@@ -207,10 +215,14 @@
 
         </div>
 
+
+        <!-- 2nd last footer , with thank you note section ==> -->
         <div class="footer">
             Thank you for Using and visiting!
         </div>
 
+
+        <!-- Main Footer section (This having feedback form and about me) ==> -->
         <footer>
 
             <div class="left">
@@ -239,8 +251,8 @@
                                     <input type="radio" name="feed_type" value="Bug" id="bug"><label
                                         for="bug">Bug</label> <br>
 
-                                    <input type="radio" name="feed_type" value="Criticize" id="criticize"><label
-                                        for="criticize">Criticize</label> 
+                                    <input type="radio" name="feed_type" value="Bad Message" id="criticize"><label
+                                        for="criticize">Not Like(Message)</label> 
 
                                 </div>
 
@@ -294,19 +306,25 @@
 
         </footer>
 
+       
+        <!-- Show all feedbacks for this website section ==> -->
+
+        <div class="show_all_feeds_topmost_div">
+
+            <div class="show_All_FeedBack_main">
+                <h1>Click on Show Button to see all Feedbacks</h1>
+                <input type="button" value="Show All Feedbacks" onclick="showAllFeedBack()" id="show_all_feed_btn">
+                
+                <div id="process_all_feeds"></div>
+                
+                <!-- Result div below ===> -->
+                <div id="all_feedback"></div>
+            </div>
+            
+        </div>
+        
         <!-- Go to btn with img -->
         <a href="#header"> <img src="https://cdn0.iconfinder.com/data/icons/evericons-16px/16/circle-arrow-top-512.png" alt="Top scroll" id="top_scroll_btn"></a>
-       
-
-        <div class="show_All_FeedBack_main">
-            <h1>Click on Show Button to see all Feedbacks</h1>
-            <input type="button" value="Show All Feedbacks" onclick="showAllFeedBack()" id="show_all_feed_btn">
-
-            <div id="process_all_feeds"></div>
-            <!-- Result div below ===> -->
-            <div id="all_feedback"></div>
-
-        </div>
 
 
         <script type="text/javascript" src="home.js"></script>

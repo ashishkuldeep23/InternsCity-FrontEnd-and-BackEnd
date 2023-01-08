@@ -39,7 +39,7 @@ async function reg_submit_func() {
 
     if (network == false) {
         alertBoxValue = 1
-        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
+        return showAlertBox("Please connect with network.\nBecause network connection needed for DB call.", false)
     }
 
     let full_name = document.getElementById("Full_name").value.trim()
@@ -155,7 +155,7 @@ async function searchClgName() {
 
     if (network == false) {
         alertBoxValue = 1
-        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
+        return showAlertBox("Please connect with network.\nBecause network connection needed for DB call.", false)
     }
 
     // // // Below el for progress when data load.( We will change visibility of progress when needed)
@@ -267,7 +267,7 @@ const clgFullNmaeRegex = /^([a-zA-Z \_\.\-\,]{5,})*$/
 async function createNewClg() {
     if (network == false) {
         alertBoxValue = 1
-        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
+        return showAlertBox("Please connect with network.\nBecause network connection needed for DB call.", false)
     }
 
 
@@ -360,7 +360,7 @@ async function feed_submit_func() {
 
     if (network == false) {
         alertBoxValue = 1
-        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
+        return showAlertBox("Please connect with network.\nBecause network connection needed for DB call.", false)
     }
 
     let progress = document.getElementById("progress_feed")
@@ -388,7 +388,7 @@ async function feed_submit_func() {
         progress.style.visibility = "hidden"
 
         alertBoxValue = 1
-        return showAlertBox("Feedback message should given.", false)
+        return showAlertBox("Feedback message should be given.", false)
     }
 
 
@@ -472,7 +472,7 @@ async function showAllFeedBack(){
 
     if (network == false) {
         alertBoxValue = 1
-        return showAlertBox("Please connect with network.\nBecause network connection needed to DB call.", false)
+        return showAlertBox("Please connect with network.\nBecause network connection needed for DB call.", false)
     }
 
     if(alReadyFeedShown == 1){

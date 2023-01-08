@@ -35,10 +35,11 @@
         <!-- All navs ==> -->
         <div class="nav">
             <ul>
-                <li><a href="#header">Home Page</a></li>
+                <li><a href="#header">Home</a></li>
                 <li><a href="#regestation">Create interns</a></li>
                 <li><a href="#get_clg_details">College details</a></li>
                 <li><a href="#create_clg">Create College</a></li>
+                <li><a href="#feed_form">Feedback</a></li>
             </ul>
             
         </div>
@@ -262,7 +263,12 @@
                                     <textarea name="" placeholder="Nice website (Your Feedback Message)" id="feed_msg" id="" cols="40" rows="8"></textarea>
                                 </div>
 
-                                <input type="button" id="feed_submit_btn" value="Submit">
+                                <div>
+
+                                    <input type="button" id="feed_submit_btn" value="Submit">
+                                    <input type="button"  value="Clear" onclick="clearFeedDetails()" class="clear_btn"  >
+                                </div>
+
                                 <div id="progress_feed"></div>
 
                         </div>

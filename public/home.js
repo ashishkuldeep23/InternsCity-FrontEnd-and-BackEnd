@@ -386,7 +386,7 @@ async function feed_submit_func() {
 
     if (!feedMsg) {
         progress.style.visibility = "hidden"
-
+        
         alertBoxValue = 1
         return showAlertBox("Feedback message should be given.", false)
     }
@@ -669,6 +669,11 @@ let clearRegsDetails = ()=>{
     document.getElementById('regesterForm').reset()
 }
 
+// // // feed form clear -->
+
+function clearFeedDetails(){
+    document.getElementById("feed_form").reset()
+}
 
 
 

@@ -20,7 +20,7 @@ let network = navigator.onLine
 
 
 
-// // // <-------------------------------------<<<<< Regestation submit >>>>>>>>>>------------------------------------->
+// // // <======================================<<<<< Regestation submit >>>>>>>>>>=====================================================>
 
 // // // 1. On submit btn click --->
 let reg_submit = document.getElementById("reg_submit")
@@ -133,7 +133,7 @@ async function reg_submit_func() {
 
 
 
-// // // <---------------------------------------------<<<<< Search Clg Submit >>>>>>-------------------------------------------->
+// // // <==========================================<<<<< Search Clg by short name >>>>>>===================================================>
 
 // // // 1. On submit btn click --->
 let searchClg = document.getElementById("clg_name_submit")
@@ -167,6 +167,13 @@ async function searchClgName() {
     // // // Input value of form -->
 
     let clg_name_search = document.getElementById("clg_name_search").value.toLowerCase().trim()
+
+    if(!clg_name_search){{
+        progress.style.visibility = "hidden"
+
+        alertBoxValue = 1
+        return showAlertBox(`Error : Give College Name (short form) for search.`, false)
+    }}
 
     if (!clgNameRegex.test(clg_name_search)) {
         progress.style.visibility = "hidden"
@@ -245,7 +252,7 @@ async function searchClgName() {
 
 
 
-// // // <------------------------------------------------<<<< Create Clg Submit >>>>>----------------------------------------------->
+// // // <=========================================<<<< Create Clg Submit >>>>>==========================================================>
 
 // // // 1. On submit btn click --->
 let createClg = document.getElementById("create_clg_btn")
@@ -349,7 +356,7 @@ async function createNewClg() {
 
 
 
-// // // <--------------------------------------------<<<< Post Feedback >>>>>------------------------------------------------->
+// // // <==========================================<<<< Post Feedback >>>>>========================================================>
 
 
 let feed_submit = document.getElementById("feed_submit_btn")
@@ -393,7 +400,6 @@ async function feed_submit_func() {
 
 
     let body = {
-        modelName: "intern",
         feedbackName: feedName,
         feedbackType: checkedRadio,
         feedbackMsg: feedMsg
@@ -408,7 +414,7 @@ async function feed_submit_func() {
         body: JSON.stringify(body)
     }
 
-    let data = await fetch("https://feedback-hzwx.onrender.com/newFeedback", option)
+    let data = await fetch("https://feedback-hzwx.onrender.com/newFeedback/intern", option)
 
     let a = await data.json()
 
@@ -453,7 +459,7 @@ async function feed_submit_func() {
 
 
 
-// // // // <-----------------------------------<<<<< Show all feedback func >>>>>>-------------------------------------------->
+// // // // <=========================================<<<<< Show all feedback func >>>>===================================================>
 
 // // // Below is for checking previously submited feedback or not ----->
 let periviousFeedBack = localStorage.getItem("FeedBackForAk")
@@ -511,12 +517,12 @@ async function showAllFeedBack(){
             temp += `  
             <div class="user_feeds_are">
                 <h3>Name :- ${a.data[i].feedbackName}</h3>
-                <p>Type :- ${a.data[i].feedbackType}</p>
-                <p>Count :- ${i+1} </p>
+                <p>Type :- ${a.data[i].feedbackType }</p>
+                <p>Count :- ${a.data.length-i} </p>
                 <p>Message:- ${a.data[i].feedbackMsg}</p>
+                <p>Reply:- ${a.data[i].reply || "Thank You!"}</p>
                 <p>Time:- ${a.data[i].whenCreated}</p>
-            </div>
-            `
+            </div> `
         }
     
         // // // setting inner html to outPut div
@@ -541,7 +547,7 @@ async function showAllFeedBack(){
 
 
 
-// // // <--------------------------------------<<<<<<<< Scroll to top >>>>>------------------------------------------------------------->
+// // // <==================================<<<<<<<< Scroll to top >>>>==========================================================>
 
 document.addEventListener("scroll", scrollProg)
 // This is listing scoll even and giving self function attached with scroll.
@@ -607,7 +613,7 @@ function scrollProg() {
 
 
 
-// // // ----------------------------------------<<<<<<< Some Imp parts like alertbox and sound >>>>>>>>>>>>---------------------------------->
+// // // ==================================<<<<<<< Some Imp parts like alertbox and sound >>>>>>=========================================>
 
 
 // // // Alert box cancel ----->
@@ -657,7 +663,7 @@ document.querySelector("body").onkeydown = (e) => {
 
 
 
-// // // <-------------------------------<<<<<< Clear form >>>>>>>--------------------------------------->
+// // // <==============================================<<<<<< Clear form >>>>>>>=====================================================>
 
 // // // Clg form clear -->
 let clearClgDetails = ()=>{
@@ -678,7 +684,7 @@ function clearFeedDetails(){
 
 
 
-// // // <---------------------------------------------<<<<<<< Make data sequre here >>>>>>>>-------------------------->
+// // // <============================================<<<<<<< Make data sequre here >>>>>>>>===========================================>
 
 
 // // // // Function to keep data sequre, data like Mobile no. or email

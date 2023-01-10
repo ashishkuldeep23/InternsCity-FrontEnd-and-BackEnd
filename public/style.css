@@ -820,13 +820,22 @@ footer>.right {
 /* Clear Btn style */
 .clear_btn{
     background-color: rgb(202, 39, 39);
-    height: 20px; 
-    width: 40px; 
+    height: 25px; 
+    width: 45px; 
     color: white; 
-    border-radius:1vh; 
+    border-radius:0.5vh; 
     font-weight: 600;
 }
 
+.clear_btn:hover{
+    cursor: pointer;
+    color: yellow;
+    border-radius:2vh; 
+}
+
+.clear_btn:active{
+    background-color: cyan;
+}
 
 
 

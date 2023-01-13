@@ -616,7 +616,7 @@ function scrollProg() {
 // // // ==================================<<<<<<< Some Imp parts like alertbox and sound >>>>>>=========================================>
 
 
-// // // Alert box cancel ----->
+// // //=======================================<<< Alert box cancel >>>>==========================================>>>
 
 // // // Vlaue 0 for logic to off alert box -->
 var alertBoxValue = 0
@@ -631,15 +631,20 @@ function cancelFunc() {
     alertBox.style.visibility = "hidden"
 }
 
+let right = new Audio("sound/done.mp3")
+let wrong = new Audio("sound/error.mp3")
+
 
 function showAlertBox(alertMsg ="No Page found", sound = false, alertName= "Error") {
 
     if (sound == true) {
-        let audio = new Audio("sound/done.mp3")
-        audio.play()
+        // let audio = new Audio("sound/done.mp3")
+        // audio.play()
+        right.play()
     } else {
-        let audio = new Audio("sound/error.mp3")
-        audio.play()
+        // let audio = new Audio("sound/error.mp3")
+        // audio.play()
+        wrong.play()
     }
 
     // let file = sound ? "sound/done.mp3" : "sound/error.mp3"

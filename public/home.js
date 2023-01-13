@@ -654,6 +654,7 @@ function showAlertBox(alertMsg ="No Page found", sound = false, alertName= "Erro
     document.querySelector(".error_altert").style.visibility = "visible"
 
     document.querySelector(".error_altert_content").innerHTML = `<h1>${alertName} ==> </h1>\n<h3>${alertMsg}</h3>`
+    
 }
 
 // showAlertBox("Data" , "Successful" )

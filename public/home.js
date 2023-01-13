@@ -631,20 +631,23 @@ function cancelFunc() {
     alertBox.style.visibility = "hidden"
 }
 
-let right = new Audio("sound/done.mp3")
-let wrong = new Audio("sound/error.mp3")
 
 
 function showAlertBox(alertMsg ="No Page found", sound = false, alertName= "Error") {
 
+    // let right = new Audio("sound/done.mp3")
+    // let wrong = new Audio("sound/error.mp3")
+
     if (sound == true) {
         // let audio = new Audio("sound/done.mp3")
         // audio.play()
-        right.play()
+
+        new Audio("sound/done.mp3").play()
     } else {
         // let audio = new Audio("sound/error.mp3")
         // audio.play()
-        wrong.play()
+        
+        new Audio("sound/error.mp3").play()
     }
 
     // let file = sound ? "sound/done.mp3" : "sound/error.mp3"
